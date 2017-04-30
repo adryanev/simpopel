@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - simpopel@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="simpopel">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="faultpoint"/>
+    <schema id="3" name="information_schema"/>
+    <schema id="4" name="mysql"/>
+    <schema id="5" name="performance_schema"/>
+    <schema id="6" name="phpmyadmin"/>
+    <schema id="7" name="poin"/>
+    <schema id="8" name="test"/>
+    <schema id="9" name="testschool"/>
+    <schema id="10" name="treehouse_movie_db"/>
+    <table id="11" parent="1" name="tabelguru"/>
+    <table id="12" parent="1" name="tabelkategori"/>
+    <table id="13" parent="1" name="tabelperaturan"/>
+    <table id="14" parent="1" name="tabelsiswa"/>
+    <routine id="15" parent="1" name="UC_Words">
+      <routine-kind>FUNCTION</routine-kind>
+    </routine>
+    <column id="16" parent="11" name="idGuru">
+      <mandatory>1</mandatory>
+      <data-type>int(3)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="17" parent="11" name="nip">
+      <data-type>varchar(21)|0</data-type>
+    </column>
+    <column id="18" parent="11" name="nama">
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="19" parent="11" name="tempatLahir">
+      <data-type>varchar(13)|0</data-type>
+    </column>
+    <column id="20" parent="11" name="tanggalLahir">
+      <data-type>date|0</data-type>
+    </column>
+    <column id="21" parent="11" name="jabatan">
+      <data-type>varchar(17)|0</data-type>
+    </column>
+    <column id="22" parent="11" name="status">
+      <data-type>varchar(3)|0</data-type>
+    </column>
+    <column id="23" parent="11" name="pendidikan">
+      <data-type>varchar(15)|0</data-type>
+    </column>
+    <column id="24" parent="11" name="bidangStudi">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="25" parent="11" name="tamat">
+      <data-type>int(4)|0</data-type>
+    </column>
+    <column id="26" parent="11" name="masaKerja">
+      <data-type>int(3)|0</data-type>
+    </column>
+    <column id="27" parent="11" name="alamat">
+      <data-type>varchar(31)|0</data-type>
+    </column>
+    <column id="28" parent="11" name="noHp">
+      <data-type>varchar(13)|0</data-type>
+    </column>
+    <key id="29" parent="11" name="PRIMARY">
+      <columns>idGuru</columns>
+      <primary>1</primary>
+    </key>
+    <column id="30" parent="12" name="idKategori">
+      <mandatory>1</mandatory>
+      <data-type>int(1)|0</data-type>
+    </column>
+    <column id="31" parent="12" name="namaKategori">
+      <data-type>varchar(6)|0</data-type>
+    </column>
+    <key id="32" parent="12" name="PRIMARY">
+      <columns>idKategori</columns>
+      <primary>1</primary>
+    </key>
+    <column id="33" parent="13" name="idPeraturan">
+      <mandatory>1</mandatory>
+      <data-type>varchar(5)|0</data-type>
+    </column>
+    <column id="34" parent="13" name="namaPelanggaran">
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="35" parent="13" name="jenisPelanggaran">
+      <data-type>int(1)|0</data-type>
+    </column>
+    <column id="36" parent="13" name="sanksiPoin">
+      <data-type>int(3)|0</data-type>
+    </column>
+    <index id="37" parent="13" name="jenisPelanggaran">
+      <columns>jenisPelanggaran</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="38" parent="13" name="PRIMARY">
+      <columns>idPeraturan</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="39" parent="13" name="tabelPeraturan_ibfk_1">
+      <columns>jenisPelanggaran</columns>
+      <ref-key>~.tabelkategori.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="40" parent="14" name="idSiswa">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+    </column>
+    <column id="41" parent="14" name="nis">
+      <data-type>int(6)|0</data-type>
+    </column>
+    <column id="42" parent="14" name="nama">
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="43" parent="14" name="tempatLahir">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="44" parent="14" name="tanggalLahir">
+      <data-type>date|0</data-type>
+    </column>
+    <column id="45" parent="14" name="jenisKelamin">
+      <data-type>varchar(1)|0</data-type>
+    </column>
+    <column id="46" parent="14" name="namaOrtu">
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="47" parent="14" name="alamat">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="48" parent="14" name="agama">
+      <data-type>varchar(5)|0</data-type>
+    </column>
+    <column id="49" parent="14" name="usia">
+      <data-type>int(2)|0</data-type>
+    </column>
+    <column id="50" parent="14" name="nisn">
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <column id="51" parent="14" name="kelas">
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <index id="52" parent="14" name="nis">
+      <columns>nis</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="53" parent="14" name="PRIMARY">
+      <columns>idSiswa</columns>
+      <primary>1</primary>
+    </key>
+    <key id="54" parent="14" name="nis">
+      <columns>nis</columns>
+      <underlying-index>nis</underlying-index>
+    </key>
+    <argument id="55" parent="15">
+      <direction>RETURN</direction>
+      <data-type>varchar(255)|0</data-type>
+    </argument>
+    <argument id="56" parent="15" name="str">
+      <direction>IN</direction>
+      <data-type>varchar(255)|0</data-type>
+    </argument>
+  </database-model>
+</dataSource>
