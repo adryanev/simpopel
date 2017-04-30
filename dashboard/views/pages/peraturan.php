@@ -40,7 +40,7 @@ require '../../libs/database.php';
 
                             $sql  ="SELECT tabelperaturan.idPeraturan, tabelkategori.namaKategori, tabelperaturan.namaPelanggaran, 
 tabelperaturan.sanksiPoin from tabelperaturan inner JOIN tabelkategori 
-WHERE tabelperaturan.jenisPelanggaran = tabelkategori.idKategori";
+ON tabelperaturan.jenisPelanggaran = tabelkategori.idKategori";
                             $result=mysqli_query($dbConnection,$sql);
 
                             if(mysqli_num_rows($result) > 0){

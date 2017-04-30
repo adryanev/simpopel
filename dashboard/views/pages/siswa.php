@@ -17,8 +17,9 @@ require '../../libs/database.php';
                   </div>
                   <div class="x_content">
 					
-                    <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
-                      <thead>
+                    <table id="datatable-responsive" class="table table-hover table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+
+                        <thead>
                         <tr>
                             <th>No</th>
                           <th>NIS</th>
@@ -35,11 +36,14 @@ require '../../libs/database.php';
 
                       if (mysqli_num_rows($result) > 0) {
                         while($row = mysqli_fetch_assoc($result)) {
-                          echo "<tr>";
-                            echo "<td>".$row["idSiswa"]."</td>";
-                          echo "<td>".$row["nis"]."</td>";
-                          echo "<td>".$row["nama"]."</td>";
-                          echo "<td align=\"center\">".$row["kelas"]."</td>";
+
+
+                          echo "<tr> ";
+                            echo "<td><a href=\"profile.php?id=" .$row['idSiswa'] ." \">".$row["idSiswa"]."</a></td>";
+                          echo "<td><a href=\"profile.php?id=" .$row['idSiswa'] ." \">".$row["nis"]."</a></td>";
+                            echo "";
+                          echo "<td><a href=\"profile.php?id=" .$row['idSiswa'] ." \"> ".$row["nama"]." </a></td>";
+                          echo "<td align=\"center\"><a href=\"profile.php?id=" .$row['idSiswa'] ." \">".$row["kelas"]."</a></td>";
                           echo "<td align=\"center\">";
                           echo "<button type=\"button\" class=\"btn btn-primary btn-xs\"><i class=\"fa fa-plus\"></i></button>";
                           echo "<button type=\"button\" class=\"btn btn-success btn-xs\"><i class=\"fa fa-pencil\"></i></button>";
