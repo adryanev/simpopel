@@ -29,7 +29,7 @@
                         <ul class="nav side-menu">
                             <li><a href="../pages/index.php"><i class="fa fa-home"></i> Home </a>
                             </li>
-                            <li><a href="pelanggaran_siswa.html"><i class="fa fa-warning"></i> Pelanggaran </a></li>
+                            <li><a href="../pages/pelanggaran.php"><i class="fa fa-warning"></i> Pelanggaran </a></li>
                             <li><a href="../pages/siswa.php"><i class="fa fa-users"></i> Siswa </a></li>
                             <li><a href="../pages/peraturan.php"><i class="fa fa-list-alt"></i> Peraturan </a></li>
                             <li><a href="galeri.html"><i class="fa fa-photo"></i> Galeri </a></li>
