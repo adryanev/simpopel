@@ -29,6 +29,7 @@ require '../../libs/database.php';
                                cellspacing="0" width="100%">
                             <thead>
                             <tr>
+                                <th>No</th>
                                 <th>Kode Pelanggaran</th>
                                 <th>Jenis Pelanggaran</th>
                                 <th>Nama Pelanggaran</th>
@@ -45,14 +46,17 @@ ON tabelperaturan.jenisPelanggaran = tabelkategori.idKategori";
 
                             if(mysqli_num_rows($result) > 0){
                                 //output
+                                $counter = 1;
                                 while($row = mysqli_fetch_assoc($result)){
 
                                     echo "<tr> ";
+                                    echo "<td align='center'>" .$counter."</td>";
                                     echo "<td align=\"center\">" .$row['idPeraturan'] .  "</td>";
                                     echo "<td>" .$row['namaKategori'] . "</td>";
                                     echo "<td>" .$row['namaPelanggaran'] . "</td>";
                                     echo "<td align=\"center\">" . $row['sanksiPoin'] . "</td>";
                                     echo "</tr>";
+                                    $counter++;
                                 }
                             }else {
                                 echo "0 results";
