@@ -9,7 +9,7 @@
 	$server = 'localhost';
 	$username = 'root';
 	$password = '';
-	$database = 'simpopel';
+	$database = 'testschool';
 
 	$dbConnection = mysqli_connect($server, $username, $password,$database);
 	if(mysqli_connect_errno()){
