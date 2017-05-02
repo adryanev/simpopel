@@ -49,7 +49,7 @@ require '../../libs/config.php';
                 <input type="password" class="form-control" placeholder="Password" required="" name="password" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Log in</a>
+                <a class="btn btn-default submit" href="pages/index.php">Log in</a>
               </div>
 
               <div class="clearfix"></div>

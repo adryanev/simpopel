@@ -23,7 +23,7 @@ require '../../libs/database.php';
                     <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
                         <?php
                         $id = $_GET['id'];
-                        $sql = "SELECT idSiswa, nis, nama, tempatLahir, date_format(tanggalLahir, '%d %M %Y') as tanggalLahir, jenisKelamin, namaOrtu,
+                        $sql = "SELECT idSiswa, nis, nama, tempatLahir, date_format(tanggalLahir, '%d/%m/%Y') as tanggalLahir, jenisKelamin, namaOrtu,
  alamat, agama, usia, nisn, kelas, totalPoin, pasFoto FROM tabelsiswa WHERE idSiswa = $id";
                         $result = mysqli_query($dbConnection, $sql);
                         $row = mysqli_fetch_assoc($result);
@@ -32,7 +32,7 @@ require '../../libs/database.php';
                         <div id="crop-avatar">
                           <!-- Current avatar -->
                             <?php
-                                echo " <img class=\"img-responsive avatar-view\" src=\"../../images/".$row['pasFoto']."\" alt=\"Avatar\" title=\"Change the avatar\">";
+                                echo "<img class=\"img-responsive avatar-view\" src=\"../../images/".$row['pasFoto']."\" alt=\"Avatar\" title=\"Change the avatar\">";
                             ?>
 
                           </div>
@@ -55,7 +55,9 @@ require '../../libs/database.php';
                       </table>
                       </ul>
 
-                      <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                        <?php
+                            echo "<a href=\"edit_siswa.php?id=".$id."\" class=\"btn btn-success\"><i class=\"fa fa-edit m-right-xs\"></i>Edit Siswa</a>"
+                        ?>
                       <br />
                     </div>
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="MySQL - simpopel@localhost">
+<dataSource name="MySQL - testschool@localhost">
   <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
     <schema id="1" name="simpopel">
       <visible>1</visible>
@@ -17,147 +17,195 @@
     <table id="12" parent="1" name="tabelkategori"/>
     <table id="13" parent="1" name="tabelperaturan"/>
     <table id="14" parent="1" name="tabelsiswa"/>
-    <routine id="15" parent="1" name="UC_Words">
+    <table id="15" parent="1" name="tabelpelanggaran"/>
+    <routine id="16" parent="1" name="UC_Words">
       <routine-kind>FUNCTION</routine-kind>
     </routine>
-    <column id="16" parent="11" name="idGuru">
+    <column id="17" parent="11" name="idGuru">
       <mandatory>1</mandatory>
       <data-type>int(3)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="17" parent="11" name="nip">
+    <column id="18" parent="11" name="nip">
       <data-type>varchar(21)|0</data-type>
     </column>
-    <column id="18" parent="11" name="nama">
+    <column id="19" parent="11" name="nama">
       <data-type>varchar(50)|0</data-type>
     </column>
-    <column id="19" parent="11" name="tempatLahir">
+    <column id="20" parent="11" name="tempatLahir">
       <data-type>varchar(13)|0</data-type>
     </column>
-    <column id="20" parent="11" name="tanggalLahir">
+    <column id="21" parent="11" name="tanggalLahir">
       <data-type>date|0</data-type>
     </column>
-    <column id="21" parent="11" name="jabatan">
+    <column id="22" parent="11" name="jabatan">
       <data-type>varchar(17)|0</data-type>
     </column>
-    <column id="22" parent="11" name="status">
+    <column id="23" parent="11" name="status">
       <data-type>varchar(3)|0</data-type>
     </column>
-    <column id="23" parent="11" name="pendidikan">
+    <column id="24" parent="11" name="pendidikan">
       <data-type>varchar(15)|0</data-type>
     </column>
-    <column id="24" parent="11" name="bidangStudi">
+    <column id="25" parent="11" name="bidangStudi">
       <data-type>varchar(20)|0</data-type>
     </column>
-    <column id="25" parent="11" name="tamat">
+    <column id="26" parent="11" name="tamat">
       <data-type>int(4)|0</data-type>
     </column>
-    <column id="26" parent="11" name="masaKerja">
+    <column id="27" parent="11" name="masaKerja">
       <data-type>int(3)|0</data-type>
     </column>
-    <column id="27" parent="11" name="alamat">
+    <column id="28" parent="11" name="alamat">
       <data-type>varchar(31)|0</data-type>
     </column>
-    <column id="28" parent="11" name="noHp">
+    <column id="29" parent="11" name="noHp">
       <data-type>varchar(13)|0</data-type>
     </column>
-    <key id="29" parent="11" name="PRIMARY">
+    <key id="30" parent="11" name="PRIMARY">
       <columns>idGuru</columns>
       <primary>1</primary>
     </key>
-    <column id="30" parent="12" name="idKategori">
+    <column id="31" parent="12" name="idKategori">
       <mandatory>1</mandatory>
       <data-type>int(1)|0</data-type>
     </column>
-    <column id="31" parent="12" name="namaKategori">
+    <column id="32" parent="12" name="namaKategori">
       <data-type>varchar(6)|0</data-type>
     </column>
-    <key id="32" parent="12" name="PRIMARY">
+    <key id="33" parent="12" name="PRIMARY">
       <columns>idKategori</columns>
       <primary>1</primary>
     </key>
-    <column id="33" parent="13" name="idPeraturan">
+    <column id="34" parent="13" name="idPeraturan">
       <mandatory>1</mandatory>
       <data-type>varchar(5)|0</data-type>
     </column>
-    <column id="34" parent="13" name="namaPelanggaran">
+    <column id="35" parent="13" name="namaPelanggaran">
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="35" parent="13" name="jenisPelanggaran">
+    <column id="36" parent="13" name="jenisPelanggaran">
       <data-type>int(1)|0</data-type>
     </column>
-    <column id="36" parent="13" name="sanksiPoin">
+    <column id="37" parent="13" name="sanksiPoin">
       <data-type>int(3)|0</data-type>
     </column>
-    <index id="37" parent="13" name="jenisPelanggaran">
+    <index id="38" parent="13" name="jenisPelanggaran">
       <columns>jenisPelanggaran</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="38" parent="13" name="PRIMARY">
+    <key id="39" parent="13" name="PRIMARY">
       <columns>idPeraturan</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="39" parent="13" name="tabelPeraturan_ibfk_1">
+    <foreign-key id="40" parent="13" name="tabelPeraturan_ibfk_1">
       <columns>jenisPelanggaran</columns>
       <ref-key>~.tabelkategori.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <column id="40" parent="14" name="idSiswa">
+    <column id="41" parent="14" name="idSiswa">
       <mandatory>1</mandatory>
-      <data-type>int(2)|0</data-type>
+      <data-type>int(11)|0</data-type>
     </column>
-    <column id="41" parent="14" name="nis">
+    <column id="42" parent="14" name="nis">
       <data-type>int(6)|0</data-type>
     </column>
-    <column id="42" parent="14" name="nama">
+    <column id="43" parent="14" name="nama">
       <data-type>varchar(50)|0</data-type>
     </column>
-    <column id="43" parent="14" name="tempatLahir">
+    <column id="44" parent="14" name="tempatLahir">
       <data-type>varchar(30)|0</data-type>
     </column>
-    <column id="44" parent="14" name="tanggalLahir">
+    <column id="45" parent="14" name="tanggalLahir">
       <data-type>date|0</data-type>
     </column>
-    <column id="45" parent="14" name="jenisKelamin">
+    <column id="46" parent="14" name="jenisKelamin">
       <data-type>varchar(1)|0</data-type>
     </column>
-    <column id="46" parent="14" name="namaOrtu">
+    <column id="47" parent="14" name="namaOrtu">
       <data-type>varchar(50)|0</data-type>
     </column>
-    <column id="47" parent="14" name="alamat">
+    <column id="48" parent="14" name="alamat">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="48" parent="14" name="agama">
+    <column id="49" parent="14" name="agama">
       <data-type>varchar(5)|0</data-type>
     </column>
-    <column id="49" parent="14" name="usia">
+    <column id="50" parent="14" name="usia">
       <data-type>int(2)|0</data-type>
     </column>
-    <column id="50" parent="14" name="nisn">
+    <column id="51" parent="14" name="nisn">
       <data-type>varchar(10)|0</data-type>
     </column>
-    <column id="51" parent="14" name="kelas">
+    <column id="52" parent="14" name="kelas">
       <data-type>varchar(10)|0</data-type>
     </column>
-    <index id="52" parent="14" name="nis">
+    <column id="53" parent="14" name="totalPoin">
+      <data-type>int(3)|0</data-type>
+    </column>
+    <column id="54" parent="14" name="pasFoto">
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <index id="55" parent="14" name="nis">
       <columns>nis</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <key id="53" parent="14" name="PRIMARY">
+    <key id="56" parent="14" name="PRIMARY">
       <columns>idSiswa</columns>
       <primary>1</primary>
     </key>
-    <key id="54" parent="14" name="nis">
+    <key id="57" parent="14" name="nis">
       <columns>nis</columns>
       <underlying-index>nis</underlying-index>
     </key>
-    <argument id="55" parent="15">
+    <column id="58" parent="15" name="idPelanggaran">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="59" parent="15" name="idSiswa">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="60" parent="15" name="idPeraturan">
+      <data-type>varchar(5)|0</data-type>
+    </column>
+    <column id="61" parent="15" name="waktuKejadian">
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="62" parent="15" name="foto">
+      <data-type>text|0</data-type>
+    </column>
+    <index id="63" parent="15" name="idPeraturan">
+      <columns>idPeraturan</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="64" parent="15" name="idSiswa">
+      <columns>idSiswa</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="65" parent="15" name="PRIMARY">
+      <columns>idPelanggaran</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="66" parent="15" name="tabelpelanggaran_ibfk_1">
+      <columns>idSiswa</columns>
+      <ref-key>~.tabelsiswa.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="67" parent="15" name="tabelpelanggaran_ibfk_2">
+      <columns>idPeraturan</columns>
+      <ref-key>~.tabelperaturan.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <argument id="68" parent="16">
       <direction>RETURN</direction>
       <data-type>varchar(255)|0</data-type>
     </argument>
-    <argument id="56" parent="15" name="str">
+    <argument id="69" parent="16" name="str">
       <direction>IN</direction>
       <data-type>varchar(255)|0</data-type>
     </argument>
