@@ -32,10 +32,11 @@ require '../../libs/config.php';
       <a class="hiddenanchor" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a>
 
-      <div>
-        <img class="mid_center logo_login" src="../../images/logo_ma.png">
-
+      <div class="x_content">
+        <img class="mid_center  img-responsive" style="width:157px; height:137px" src="../../images/logo MA.png" alt="image">
+        <h3 align="center">SIMPOPEL MA HASANAH PEKANBARU</h3>
       </div>
+      <div class="clearfix"></div>
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
@@ -48,22 +49,20 @@ require '../../libs/config.php';
                 <input type="password" class="form-control" placeholder="Password" required="" name="password" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Log in</a>
-                <a class="reset_pass" href="#">Lost your password?</a>
+                <a class="btn btn-default submit" href="pages/index.php">Log in</a>
               </div>
 
               <div class="clearfix"></div>
 
               <div class="separator">
-                <p class="change_link">New to site?
-                  <a href="#signup" class="to_register"> Create Account </a>
+                <p class="change_link">
+                  <a href="#signup" class="to_register"> Lupa Password? </a>
                 </p>
 
                 <div class="clearfix"></div>
                 <br />
 
                 <div>
-                  <h1>SIMPOPEL MA HASANAH PEKANBARU</h1>
                   <p>©2017 All Rights Reserved. </p>
                 </div>
               </div>

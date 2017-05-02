@@ -21,18 +21,23 @@ require '../../libs/database.php';
                   <div class="x_content">
 
                     <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
-                      <div class="profile_img">
-                        <div id="crop-avatar">
-                          <!-- Current avatar -->
-                          <img class="img-responsive avatar-view" src="../../images/profile.png" alt="Avatar" title="Change the avatar">
-                        </div>
-                      </div>
                         <?php
                         $id = $_GET['id'];
-                        $sql = "SELECT * FROM tabelsiswa WHERE idSiswa = $id";
+                        $sql = "SELECT idSiswa, nis, nama, tempatLahir, date_format(tanggalLahir, '%d/%m/%Y') as tanggalLahir, jenisKelamin, namaOrtu,
+ alamat, agama, usia, nisn, kelas, totalPoin, pasFoto FROM tabelsiswa WHERE idSiswa = $id";
                         $result = mysqli_query($dbConnection, $sql);
                         $row = mysqli_fetch_assoc($result);
                         ?>
+                      <div class="profile_img">
+                        <div id="crop-avatar">
+                          <!-- Current avatar -->
+                            <?php
+                                echo "<img class=\"img-responsive avatar-view\" src=\"../../images/".$row['pasFoto']."\" alt=\"Avatar\" title=\"Change the avatar\">";
+                            ?>
+
+                          </div>
+                      </div>
+
                       <h3><?php echo $row['nama']?></h3>
 
                       <ul class="list-unstyled user_data">
@@ -50,7 +55,9 @@ require '../../libs/database.php';
                       </table>
                       </ul>
 
-                      <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                        <?php
+                            echo "<a href=\"edit_siswa.php?id=".$id."\" class=\"btn btn-success\"><i class=\"fa fa-edit m-right-xs\"></i>Edit Siswa</a>"
+                        ?>
                       <br />
                     </div>
 
@@ -130,8 +137,8 @@ require '../../libs/database.php';
                                   <th>No</th>
                                   <th>ID Peraturan</th>
                                   <th>Nama Pelanggaran</th>
-                                  <th>Sanksi Poin</th>
                                   <th>Waktu Kejadian</th>
+                                  <th>Total Poin</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -152,13 +159,21 @@ WHERE tabelsiswa.idSiswa = ". "$id";
                                       echo "<th scope=\"row\">$counter</th>";
                                       echo "<td>".$row['idPeraturan']."</td>";
                                       echo "<td>".$row['namaPelanggaran']."</td>";
-                                      echo "<td>".$row['sanksiPoin']."</td>";
                                       echo "<td>".$row['waktuKejadian']."</td>";
-                                      echo "<tr>";
+                                      echo "<td align='right'>".$row['sanksiPoin']."</td>";
+                                      echo "</tr>";
                                       $counter++;
+
                                   }
+                                  $sql = "Select totalPoin from tabelsiswa where idSiswa = $id";
+                                  $result = mysqli_query($dbConnection,$sql);
+                                  $totalPoin = mysqli_fetch_assoc($result);
+                                  echo "<tr>";
+                                  echo "<td colspan='4'>Total Poin</td>";
+                                  echo "<td align='right'>".$totalPoin['totalPoin']."</td>";
+                                  echo "</tr>";
                               }else{
-                                  echo "Tidak ada data";
+                                  echo "<p class='text-center'>Siswa tidak perhah melanggar aturan.</p>";
                               }
                               mysqli_close($dbConnection);
                               ?>

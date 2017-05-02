@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: adryanev
- * Date: 30/04/2017
- * Time: 18.14
- */
+
 require '../sections/header.php';
 require '../sections/sidebar.php';
 require '../sections/top_navigation.php';
@@ -21,172 +16,42 @@ require '../../libs/database.php';
             <div class="x_content">
 
                 <div class="row">
-                    <div class="col-md-55">
-                        <div class="thumbnail">
-                            <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="../../images/media.jpg" alt="image" />
-                                <div class="mask">
-                                    <p>Total Point</p>
-                                    <div class="tools tools-bottom">
-                                        <a href="edit_form.html"><i class="fa fa-pencil"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caption">
-                                <p><strong>Nama Siswa</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-55">
-                        <div class="thumbnail">
-                            <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="../../images/media.jpg" alt="image" />
-                                <div class="mask">
-                                    <p>Total Point</p>
-                                    <div class="tools tools-bottom">
-                                        <a href="edit_form.html"><i class="fa fa-pencil"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caption">
-                                <p><strong>Nama Siswa</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-55">
-                        <div class="thumbnail">
-                            <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="../../images/media.jpg" alt="image" />
-                                <div class="mask">
-                                    <p>Total Point</p>
-                                    <div class="tools tools-bottom">
-                                        <a href="edit_form.html"><i class="fa fa-pencil"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caption">
-                                <p><strong>Nama Siswa</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-55">
-                        <div class="thumbnail">
-                            <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="../../images/media.jpg" alt="image" />
-                                <div class="mask">
-                                    <p>Total Point</p>
-                                    <div class="tools tools-bottom">
-                                        <a href="edit_form.html"><i class="fa fa-pencil"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caption">
-                                <p><strong>Nama Siswa</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-55">
-                        <div class="thumbnail">
-                            <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="../../images/media.jpg" alt="image" />
-                                <div class="mask">
-                                    <p>Total Point</p>
-                                    <div class="tools tools-bottom">
-                                        <a href="edit_form.html"><i class="fa fa-pencil"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caption">
-                                <p><strong>Nama Siswa</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-55">
-                        <div class="thumbnail">
-                            <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="../../images/media.jpg" alt="image" />
-                                <div class="mask">
-                                    <p>Total Point</p>
-                                    <div class="tools tools-bottom">
-                                        <a href="edit_form.html"><i class="fa fa-pencil"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caption">
-                                <p><strong>Nama Siswa</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-55">
-                        <div class="thumbnail">
-                            <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="../../images/media.jpg" alt="image" />
-                                <div class="mask">
-                                    <p>Total Point</p>
-                                    <div class="tools tools-bottom">
-                                        <a href="edit_form.html"><i class="fa fa-pencil"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caption">
-                                <p><strong>Nama Siswa</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-55">
-                        <div class="thumbnail">
-                            <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="../../images/media.jpg" alt="image" />
-                                <div class="mask">
-                                    <p>Total Point</p>
-                                    <div class="tools tools-bottom">
-                                        <a href="edit_form.html"><i class="fa fa-pencil"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caption">
-                                <p><strong>Nama Siswa</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-55">
-                        <div class="thumbnail">
-                            <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="../../images/media.jpg" alt="image" />
-                                <div class="mask">
-                                    <p>Total Point</p>
-                                    <div class="tools tools-bottom">
-                                        <a href="edit_form.html"><i class="fa fa-pencil"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caption">
-                                <p><strong>Nama Siswa</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-55">
-                        <div class="thumbnail">
-                            <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="../../images/media.jpg" alt="image" />
-                                <div class="mask">
-                                    <p>Total Point</p>
-                                    <div class="tools tools-bottom">
-                                        <a href="edit_form.html"><i class="fa fa-pencil"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caption">
-                                <p><strong>Nama Siswa</strong></p>
-                            </div>
-                        </div>
-                    </div>
+
+                    <?php
+                    $sql = "SELECT nama, totalPoin, pasFoto FROM tabelsiswa ORDER BY totalPoin DESC LIMIT 10";
+                    $result = mysqli_query($dbConnection, $sql);
+
+
+                    if (mysqli_num_rows($result) > 0) {
+                        while($row = mysqli_fetch_assoc($result)) {
+                          echo "<div class=\"col-md-55\">";
+                          echo "<div class=\"thumbnail\">";
+                          echo "<div class=\"image view view-first\">";
+                          echo"<img style=\"width: 100%; display: block;\" src=\"../../images/".$row['pasFoto']."\" alt=\"image\" />";
+                          echo "<div class=\"mask\">";
+                          echo "<p>Point :  ".$row['totalPoin']."</p>";
+                          echo "<div class=\"tools tools-bottom\">";
+                          echo "<a href=\"edit_form.html\"><i class=\"fa fa-pencil\"></i></a>";
+                          echo "</div>";
+                          echo "</div>";
+                          echo "</div>";
+                          echo "<div class=\"caption\">";
+                          echo "<p><a href=\"profile.php?id=".$row['idSiswa']."\"> <strong>".$row['nama']."</strong></a></p>";
+                          echo "</div>";
+                          echo "</div>";
+                          echo "</div>";
+                        }
+                      } else {
+                        echo "0 results";
+                      }
+
+                      mysqli_close($dbConnection);
+                    ?>
+
                 </div>
             </div>
         </div>
     </div>
-</div>
-
 </div>
 <!-- /page content -->
 <?php

@@ -9,10 +9,17 @@
       </div>
     </div>
 
-    <!-- jQuery -->
-    <script src="../../assets/jquery/dist/jquery.min.js"></script>
+        <!-- Include jQuery -->
+        <script type="text/javascript" src="../../assets/jquery/dist/jquery.js"></script>
     <!-- Bootstrap -->
     <script src="../../assets/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!--bootstrap-datepicker -->
+        <script src="../../assets/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+        <!-- bootstrap-daterangepicker -->
+        <script src="../../assets/moment/min/moment.min.js"></script>
+        <script src="../../assets/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <!-- bootstrap file upload -->
+        <script src="../../assets/bootstrap-fileinput/js/fileinput.js"></script>
     <!-- FastClick -->
     <script src="../../assets/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
@@ -35,7 +42,8 @@
     <script src="../../assets/jszip/dist/jszip.min.js"></script>
     <script src="../../assets/pdfmake/build/pdfmake.min.js"></script>
     <script src="../../assets/pdfmake/build/vfs_fonts.js"></script>
-
+        <!-- Chart JS -->
+        <link href="../../assets/Chart.js/dist/Chart.js">
     <!-- Custom Theme Scripts -->
     <script src="../../assets/custom.min.js"></script>
 
