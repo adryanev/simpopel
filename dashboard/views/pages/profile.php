@@ -31,8 +31,10 @@ require '../../libs/database.php';
                       <div class="profile_img">
                         <div id="crop-avatar">
                           <!-- Current avatar -->
+
                             <?php
-                                echo "<img class=\"img-responsive avatar-view\" src=\"../../images/".$row['pasFoto']."\" alt=\"Avatar\" title=\"Change the avatar\">";
+
+                                echo "<img class=\"img-responsive avatar-view\" src=\"../../../images/".$row['pasFoto']."\" alt=\"Avatar\" title=\"Change the avatar\">";
                             ?>
 
                           </div>
@@ -56,8 +58,10 @@ require '../../libs/database.php';
                       </ul>
 
                         <?php
-                            echo "<a href=\"edit_siswa.php?id=".$id."\" class=\"btn btn-success\"><i class=\"fa fa-edit m-right-xs\"></i>Edit Siswa</a>"
+                        include '../modals/edit_siswa.php';
+                           // echo "<a href=\"edit_siswa.php?id=".$id."\" class=\"btn btn-success\"><i class=\"fa fa-edit m-right-xs\"></i>Edit Siswa</a>"
                         ?>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-edit m-right-xs"></i> Edit Siswa</button>
                       <br />
                     </div>
 

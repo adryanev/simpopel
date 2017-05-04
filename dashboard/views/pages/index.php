@@ -27,7 +27,7 @@ require '../../libs/database.php';
                           echo "<div class=\"col-md-55\">";
                           echo "<div class=\"thumbnail\">";
                           echo "<div class=\"image view view-first\">";
-                          echo"<img style=\"width: 100%; display: block;\" src=\"../../images/".$row['pasFoto']."\" alt=\"image\" />";
+                          echo"<img style=\"width: 100%; display: block;\" src=\"../../../images/".$row['pasFoto']."\" alt=\"image\" />";
                           echo "<div class=\"mask\">";
                           echo "<p>Point :  ".$row['totalPoin']."</p>";
                           echo "<div class=\"tools tools-bottom\">";
