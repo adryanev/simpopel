@@ -34,7 +34,7 @@ require '../../libs/database.php';
                     <div class="row">
                     
                     <?php
-                    $sql = "SELECT nama, totalPoin, pasFoto FROM tabelsiswa ORDER BY nama";
+                    $sql = "SELECT nama, namaPelanggaran, foto FROM pelanggaran_all_time";
                     $result = mysqli_query($dbConnection, $sql);
 
 
@@ -43,16 +43,14 @@ require '../../libs/database.php';
                           echo "<div class=\"col-md-55\">";
                           echo "<div class=\"thumbnail\">";
                           echo "<div class=\"image view view-first\">";
-                          echo"<img style=\"width: 100%; display: block;\" src=\"../../images/".$row['pasFoto']."\" alt=\"image\" />";
+                          echo"<img style=\"width: 100%; display: block;\" src=\"../../../images/".$row['foto']."\" alt=\"image\" />";
                           echo "<div class=\"mask\">";
-                          echo "<p>Point :  ".$row['totalPoin']."</p>";
-                          echo "<div class=\"tools tools-bottom\">";
-                          echo "<a href=\"edit_form.html\"><i class=\"fa fa-pencil\"></i></a>";
-                          echo "</div>";
+                          echo "<p>".$row['namaPelanggaran']."</p>";
+                         
                           echo "</div>";
                           echo "</div>";
                           echo "<div class=\"caption\">";
-                          echo "<p><a href=\"profile.php?id=".$row['idSiswa']."\"> <strong>".$row['nama']."</strong></a></p>";
+                          echo "<p><a href=\"profile.php?id=".$row['nama']."\"> <strong>".$row['nama']."</strong></a></p>";
                           echo "</div>";
                           echo "</div>";
                           echo "</div>";

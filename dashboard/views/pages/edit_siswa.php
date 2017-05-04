@@ -22,8 +22,18 @@ $row = mysqli_fetch_assoc($result);
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" action="update_siswa.php" method="post" class="form-horizontal form-label-left">
+                    <form id="demo-form2" action="../../processes/update_siswa.php?id="<?php echo $id;?>" method="post" class="form-horizontal form-label-left">
 
+                        <div class="form-group hidden">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nis">NIS
+                            </label>
+                            <div class="input-group col-md-6 col-sm-6 col-xs-12">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-credit-card"></i>
+                                </div>
+                                <input type="hidden" id="idSiswa" value="<?php echo $row['idSiswa']; ?>" readonly="readonly" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nis">NIS 
                         </label>
@@ -51,14 +61,25 @@ $row = mysqli_fetch_assoc($result);
                           <select class="form-control">
                           <?php
                           switch ($row['kelas']) {
+                              case 'XII IPA':
+                                  echo "<option selected>XII IPA</option>";
+                                  echo "<option>XI IPS</option>";
+                                  echo "<option>XI IPA</option>";
+                                  echo "<option>XI IPS</option>";
+                                  echo "<option>X IPA</option>";
+                                  echo "<option>X IPS</option>";
+                                  break;
+
                           	case 'XII IPS':
                           		echo "<option selected>XII IPS</option>";
+                                echo "<option>XII IPA</option>";
                           		echo "<option>XI IPA</option>";
                           		echo "<option>XI IPS</option>";
                           		echo "<option>X IPA</option>";
                           		echo "<option>X IPS</option>";
                           		break;
                           	case 'XI IPA':
+                                echo "<option>XII IPA</option>";
                           		echo "<option>XII IPS</option>";
                           		echo "<option selected>XI IPA</option>";
                           		echo "<option>XI IPS</option>";
@@ -66,6 +87,7 @@ $row = mysqli_fetch_assoc($result);
                           		echo "<option>X IPS</option>";
                           		break;
                           	case 'XI IPS':
+                                echo "<option>XII IPA</option>";
                           		echo "<option>XII IPS</option>";
                           		echo "<option>XI IPA</option>";
                           		echo "<option selected>XI IPS</option>";
@@ -73,6 +95,7 @@ $row = mysqli_fetch_assoc($result);
                           		echo "<option>X IPS</option>";
                           		break;
                           	case 'X IPA':
+                                echo "<option>XII IPA</option>";
                           		echo "<option>XII IPS</option>";
                           		echo "<option>XI IPA</option>";
                           		echo "<option>XI IPS</option>";
@@ -80,6 +103,7 @@ $row = mysqli_fetch_assoc($result);
                           		echo "<option>X IPS</option>";
                           		break;
                           	case 'XI IPS':
+                                echo "<option>XII IPA</option>";
                           		echo "<option>XII IPS</option>";
                           		echo "<option>XI IPA</option>";
                           		echo "<option>XI IPS</option>";
@@ -195,7 +219,7 @@ $row = mysqli_fetch_assoc($result);
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nisn">Pas Foto
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12 input-group">
-                              <input type="file" id="pasFoto" value="<?php echo $row['foto']; ?>" class="file col-md-7 col-xs-12">
+                              <input type="file" id="pasFoto" value="<?php echo $row['foto']; ?>" class="file col-md-7 col-xs-12" multiple data-show-upload="false" data-show-caption="true">
                             </div>
                         </div>
                       <div class="ln_solid"></div>
