@@ -69,7 +69,7 @@ VALUES('$nis','$nama','$tempatLahir','$tanggalLahir','$jenisKelamin','$namaOrtu'
             echo mysqli_error($result);
         }else{
             echo "<script> alert(\"Data telah masuk\");
-window.location('views/pages/siswa.php')";
+window.location='../views/pages/siswa.php'";
         }
     }
 
