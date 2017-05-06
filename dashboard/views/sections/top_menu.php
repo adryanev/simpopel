@@ -26,11 +26,11 @@ SUM(CASE when jenisKelamin = 'P' then 1 else 0 end) as totalPr FROM pelanggaran_
             <div class="count"><?php echo $row['kejadianBulan'] ; ?></div>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-9 tile_stats_count">
-            <span class="count_top"><i class="fa fa-user"></i> Pelanggar (Laki-laki)</span>
+            <span class="count_top"><i class="fa fa-user"></i> Pelanggaran oleh Laki-laki</span>
             <div class="count"><?php echo $row['totalLaki'] ; ?></div>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-9 tile_stats_count">
-            <span class="count_top"><i class="fa fa-user"></i> Pelanggar (Perempuan)</span>
+            <span class="count_top"><i class="fa fa-user"></i> Pelanggar oleh Perempuan</span>
             <div class="count"><?php echo $row['totalPr'] ; ?></div>
         </div>
     </div>

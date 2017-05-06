@@ -63,7 +63,7 @@ VALUES('$nis','$nama','$tempatLahir','$tanggalLahir','$jenisKelamin','$namaOrtu'
 
             $result = mysqli_query($dbConnection,$sql);
 
-            if(mysqli_query($sql)){
+            if($result){
                 echo "<script>window.alert('Data telah masuk.');
 					window.location='../views/pages/siswa.php'</script>";
 
