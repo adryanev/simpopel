@@ -63,11 +63,12 @@ VALUES('$nis','$nama','$tempatLahir','$tanggalLahir','$jenisKelamin','$namaOrtu'
 
             $result = mysqli_query($dbConnection,$sql);
 
-            if(mysqli_error($result)){
-                echo mysqli_error($result);
-            }else{
-                echo "<script> alert(\"Data telah masuk\");
-window.location('views/pages/siswa.php')";
+            if($result){
+                echo "<script>window.alert('Data telah masuk.');
+					window.location='../views/pages/siswa.php'</script>";
+
+            } else {
+                echo "Error: " . $query . "<br>" . mysqli_error($dbConnection);
             }
         }
 
