@@ -13,6 +13,10 @@ session_start();
     <title>SIMPOPEL</title>
       <!-- Include jQuery -->
       <script type="text/javascript" src="../../assets/jquery/dist/jquery.js"></script>
+      <!-- moment.js -->
+      <script src="../../assets/moment/moment.js"></script>
+      <!-- Chart JS -->
+      <script src="../../assets/Chart.js/dist/Chart.min.js"></script>
 
       <!-- Bootstrap -->
       <link href="../../assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -35,6 +39,8 @@ session_start();
       <link href="../../assets/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" rel="stylesheet">
       <!-- bootstrap-daterangepicker -->
       <link href="../../assets/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+      <!-- bootsrap-datetimepicker -->
+      <link href="../../assets/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
 
       <!-- Custom Theme Style -->
       <link href="../../assets/custom.min.css" rel="stylesheet">

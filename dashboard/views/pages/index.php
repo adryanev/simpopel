@@ -18,7 +18,7 @@ require '../../libs/database.php';
                 <div class="row">
 
                     <?php
-                    $sql = "SELECT nama, totalPoin, pasFoto FROM tabelsiswa ORDER BY totalPoin DESC LIMIT 10";
+                    $sql = "SELECT idSiswa, nama, totalPoin, pasFoto FROM tabelsiswa ORDER BY totalPoin DESC LIMIT 10";
                     $result = mysqli_query($dbConnection, $sql);
 
 

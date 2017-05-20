@@ -18,8 +18,12 @@
         <!-- bootstrap-daterangepicker -->
         <script src="../../assets/moment/min/moment.min.js"></script>
         <script src="../../assets/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <!-- bootsrap date time picker -->
+        <script src="../../assets/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
         <!-- bootstrap file upload -->
         <script src="../../assets/bootstrap-fileinput/js/fileinput.js"></script>
+        <!-- moment.js -->
+        <script src="../../assets/moment/moment.js"></script>
     <!-- FastClick -->
     <script src="../../assets/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->

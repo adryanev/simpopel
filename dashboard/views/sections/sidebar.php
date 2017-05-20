@@ -33,7 +33,8 @@
                             <li><a href="../pages/siswa.php"><i class="fa fa-users"></i> Siswa </a></li>
                             <li><a href="../pages/peraturan.php"><i class="fa fa-list-alt"></i> Peraturan </a></li>
                             <li><a href="../pages/galeri.php"><i class="fa fa-photo"></i> Galeri </a></li>
-                            <li><a href="#"><i class="fa fa-file-o"></i> Laporan </a></li>
+                            <li><a href="../pages/surat_panggilan.php"><i class="fa fa-paper-plane-o"></i> Surat Panggilan </a></li>
+                            <li><a href="../pages/laporan.php"><i class="fa fa-file-o"></i> Laporan </a></li>
                         </ul>
                     </div>
                 </div>
