@@ -6,13 +6,13 @@
  * Time: 11.43
  */
 require '../libs/database.php';
-
+date_default_timezone_set("Asia/Jakarta");
 if(isset($_POST['save'])){
     $idPelanggaran = $_POST['idPelanggaran'];
     $nis = $_POST['nis'];
     $nama = $_POST['nama'];
     $idPeraturan = $_POST['idPeraturan'];
-    $waktuKejadian = $_POST ['idPeraturan'];
+    $waktuKejadian = date('Y-m-d h:i:s');
     $foto = $_FILES['foto'];
     $namaFoto = $_FILES['foto']['name'];
 

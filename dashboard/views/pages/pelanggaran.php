@@ -25,6 +25,7 @@ require '../../libs/database.php';
 
                         </div>
                         </div>
+                    <?php include '../modals/input_pelanggaran.php'?>
                     <div class="clearfix"></div>
                     <div class="x_content">
 

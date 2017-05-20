@@ -179,7 +179,9 @@ WHERE tabelsiswa.idSiswa = ". "$id";
                               }else{
                                   echo "<p class='text-center'>Siswa tidak perhah melanggar aturan.</p>";
                               }
-                              mysqli_close($dbConnection);
+
+
+                              //mysqli_close($dbConnection);
                               ?>
                               </tbody>
                             </table>

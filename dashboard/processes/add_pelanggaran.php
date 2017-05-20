@@ -7,11 +7,12 @@
  */
 require '../libs/database.php';
 
+date_default_timezone_set("Asia/Jakarta");
 if(isset($_POST['save'])){
     $nis = $_POST['nis'];
     $nama = $_POST['nama'];
     $idPeraturan = $_POST['idPeraturan'];
-    $waktuKejadian = $_POST['waktuKejadian'];
+    $waktuKejadian = date('Y-m-d h:i:s');
     $foto = $_FILES['foto'];
     $namaFoto = $_FILES['foto']['name'] ? $_FILES['foto']['name']: 'fotopelanggaran1.jpg';
 
@@ -52,7 +53,7 @@ VALUES((SELECT idSiswa from tabelsiswa where nis = $nis), '$idPeraturan','$waktu
 
         if($result){
             echo "<script>window.alert('Data telah masuk.');
-					window.location='../views/pages/siswa.php'</script>";
+					window.location='../views/pages/pelanggaran.php'</script>";
 
         } else {
             echo "Error: " . $query . "<br>" . mysqli_error($dbConnection);
