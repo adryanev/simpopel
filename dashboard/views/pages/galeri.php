@@ -50,7 +50,7 @@ require '../../libs/database.php';
                           echo "</div>";
                           echo "</div>";
                           echo "<div class=\"caption\">";
-                          echo "<p><a href=\"profile.php?id=".$row['nama']."\"> <strong>".$row['nama']."</strong></a></p>";
+                          echo "<p><a href=\"profile.php?id=".$row['idSiswa']."\"> <strong>".$row['nama']."</strong></a></p>";
                           echo "</div>";
                           echo "</div>";
                           echo "</div>";

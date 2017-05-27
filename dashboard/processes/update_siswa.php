@@ -7,11 +7,9 @@
  */
 require '../libs/database.php';
 
-$thisYear = date('Y');
-echo $thisYear;
 $id = $_GET['id'];
 if(isset($_POST['save'])) {
-
+    echo var_dump($id);
     $nis = $_POST['nis'];
     $nama = $_POST['nama'];
     $kelas = $_POST['kelas'];
