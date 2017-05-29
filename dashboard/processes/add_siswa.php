@@ -19,6 +19,7 @@
         $agama = $_POST['agama'];
         $nisn = $_POST['nisn'];
         $usia = $thisYear - date('Y',$tanggalLahir);
+        $namaOrtu = $_POST['namaOrtu'];
         $pasFoto = $_FILES['pasFoto'];
         $namaFoto = $_FILES['pasFoto']['name'] ? $_FILES['pasFoto']['name'] : 'profile.jpg';
 

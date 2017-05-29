@@ -1,5 +1,11 @@
 <?php 
 session_start();
+
+require('../../../config.php');
+$url = constant('BASE_URL');
+if ($_SESSION['level'] != 'admin') {
+    header("Location: " . $url . "views/login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,6 +56,4 @@ session_start();
       <link href="../../assets/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
       <link href="../../assets/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
       <link href="../../assets/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
-
-
   </head>

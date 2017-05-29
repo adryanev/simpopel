@@ -1,8 +1,12 @@
 <?php  
 session_start();
-require '../libs/config.php';
-require '../libs/database.php';
 
+require '../../config.php';
+require '../libs/database.php';
+$url = constant('BASE_URL');
+if(isset($_SESSION['level'])){
+  header("Location: ".$url."".$_SESSION['level']."/pages/index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -78,9 +82,10 @@ require '../libs/database.php';
     $sql = "SELECT * FROM tabeluser where username='$username' AND password='$password'";
     $result = mysqli_query($dbConnection, $sql);
     $row = mysqli_fetch_assoc($result);
-		$_SESSION[id] = $row['idUser'];
-		$_SESSION[nama] = $row['username'];
-		$_SESSION[level] = $row['hak'];
+
+		$_SESSION['id'] = $row['idUser'];
+		$_SESSION['nama'] = $row['username'];
+		$_SESSION['level'] = $row['hak'];
 		
 		if ($result){
 				if ($row['hak'] == 'admin'){

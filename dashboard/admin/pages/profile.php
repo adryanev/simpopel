@@ -172,22 +172,31 @@ WHERE tabelsiswa.idSiswa = ". "$id";
                                       $counter++;
 
                                   }
-                                  $sql = "Select totalPoin from tabelsiswa where idSiswa = $id";
+                                  $sql = "Select totalPoin, nama, nis from tabelsiswa where idSiswa = $id";
                                   $result = mysqli_query($dbConnection,$sql);
                                   $totalPoin = mysqli_fetch_assoc($result);
                                   echo "<tr>";
                                   echo "<td colspan='4'>Total Poin</td>";
                                   echo "<td align='right'>".$totalPoin['totalPoin']."</td>";
                                   echo "</tr>";
+                                  echo "</tbody>";
+                                  echo "</table>";
+                                  echo "<div class=\"clearfix\"> </div> ";
+                                  if($totalPoin['totalPoin'] >= 250 && $totalPoin['totalPoin'] < 500){
+                                      echo "<button type=\"button\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\".bs-example-modal-sm\"><i class=\"fa fa-edit m-right-xs\"></i> Cetak SP 1</button>";
+                                  }
+                                  elseif ($totalPoin['totalPoin'] >=500 && $totalPoin['totalPoin'] < 1000){
+                                      echo "<button type=\"button\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\".bs-example-modal-sm\"><i class=\"fa fa-edit m-right-xs\"></i> Cetak SP 2</button>";
+                                  }
+                                  elseif ($totalPoin['totalPoin'] > 1000){
+                                      echo "<button type=\"button\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\".bs-example-modal-sm\"><i class=\"fa fa-edit m-right-xs\"></i> Cetak SP 3</button>";
+                                  }
+                                  include '../modals/konfirmasi_permintaan_sp.php';
                               }else{
                                   echo "<p class='text-center'>Siswa tidak perhah melanggar aturan.</p>";
                               }
-
-
-                              //mysqli_close($dbConnection);
                               ?>
-                              </tbody>
-                            </table>
+
                           </div>
                         </div>
                       </div>
