@@ -27,34 +27,93 @@
                   
                     <canvas id="grafikgaris"></canvas>
 					<script type="text/javascript">
-                    var ctx = document.getElementById("grafikgaris");
-			  var lineChart = new Chart(ctx, {
-				type: 'line',
-				data: {
-				  labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni","Juli","Agustus","Oktober","November","Desember"],
-				  datasets: [{
-					label: "Pelanggar Siswa",
-					backgroundColor: "rgba(38, 185, 154, 0.31)",
-					borderColor: "rgba(38, 185, 154, 0.7)",
-					pointBorderColor: "rgba(38, 185, 154, 0.7)",
-					pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
-					pointHoverBackgroundColor: "#fff",
-					pointHoverBorderColor: "rgba(220,220,220,1)",
-					pointBorderWidth: 1,
-					data: [31, 74, 6, 39, 20, 85, 82, 23, 66, 9, 99, 4]
-				  }, {
-					label: "Pelanggar Siswi",
-					backgroundColor: "rgba(3, 88, 106, 0.3)",
-					borderColor: "rgba(3, 88, 106, 0.70)",
-					pointBorderColor: "rgba(3, 88, 106, 0.70)",
-					pointBackgroundColor: "rgba(3, 88, 106, 0.70)",
-					pointHoverBackgroundColor: "#fff",
-					pointHoverBorderColor: "rgba(151,187,205,1)",
-					pointBorderWidth: 1,
-					data: [82, 23, 66, 9, 99, 4, 31, 74, 6, 39, 20, 85]
-				  }]
-				}
-			  });
+                        $(function () {
+                            $.ajax({
+                                type: "GET",
+                                url:"http://192.168.8.101/simpopel/dashboard/queries/get_pelanggaran_by_periode.php",
+                                success: function(data){
+                                    console.log(data);
+
+                                    var hasilLaki = [];
+                                    hasilLaki.push(data[0].totalJanuari);
+                                    hasilLaki.push(data[0].totalFebruari);
+                                    hasilLaki.push(data[0].totalMaret);
+                                    hasilLaki.push(data[0].totalApril);
+                                    hasilLaki.push(data[0].totalMei);
+                                    hasilLaki.push(data[0].totalJuni);
+                                    hasilLaki.push(data[0].totalJuli);
+                                    hasilLaki.push(data[0].totalAgustus);
+                                    hasilLaki.push(data[0].totalSeptember);
+                                    hasilLaki.push(data[0].totalOktober);
+                                    hasilLaki.push(data[0].totalNovember);
+                                    hasilLaki.push(data[0].totalDesember);
+                                    console.log(hasilLaki);
+
+                                    var hasilPR = [];
+                                    hasilPR.push(data[1].totalJanuari);
+                                    hasilPR.push(data[1].totalFebruari);
+                                    hasilPR.push(data[1].totalMaret);
+                                    hasilPR.push(data[1].totalApril);
+                                    hasilPR.push(data[1].totalMei);
+                                    hasilPR.push(data[1].totalJuni);
+                                    hasilPR.push(data[1].totalJuli);
+                                    hasilPR.push(data[1].totalAgustus);
+                                    hasilPR.push(data[1].totalSeptember);
+                                    hasilPR.push(data[1].totalOktober);
+                                    hasilPR.push(data[1].totalNovember);
+                                    hasilPR.push(data[1].totalDesember);
+                                    console.log(hasilPR);
+
+                                    var chartData = {
+                                        labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni","Juli","Agustus","Oktober","November","Desember"],
+                                        datasets: [
+                                            {
+                                                label: "Pelanggar Siswa",
+                                                backgroundColor: "rgba(38, 185, 154, 0.31)",
+                                                borderColor: "rgba(38, 185, 154, 0.7)",
+                                                pointBorderColor: "rgba(38, 185, 154, 0.7)",
+                                                pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+                                                pointHoverBackgroundColor: "#fff",
+                                                pointHoverBorderColor: "rgba(220,220,220,1)",
+                                                pointBorderWidth: 1,
+                                                data: hasilLaki
+                                            },
+                                            {
+                                                label: "Pelanggar Siswi",
+                                                backgroundColor: "rgba(3, 88, 106, 0.3)",
+                                                borderColor: "rgba(3, 88, 106, 0.70)",
+                                                pointBorderColor: "rgba(3, 88, 106, 0.70)",
+                                                pointBackgroundColor: "rgba(3, 88, 106, 0.70)",
+                                                pointHoverBackgroundColor: "#fff",
+                                                pointHoverBorderColor: "rgba(151,187,205,1)",
+                                                pointBorderWidth: 1,
+                                                data: hasilPR
+                                            }
+                                        ]
+                                    };
+                                    console.log(chartData);
+                                    var ctx = document.getElementById("grafikgaris");
+                                    var lineGraph = new Chart(ctx, {
+                                        type: 'line',
+                                        data: chartData,
+                                        options: {
+                                            scales: {
+                                                yAxes: [{
+                                                    ticks: {
+                                                        beginAtZero: true
+                                                    }
+                                                }]
+                                            }
+                                        }
+                                    });
+                                },
+                                error: function (data) {
+                                    console.log(data);
+                                }
+                            });
+                            
+                        });
+
                   </script>  
 
                   </div>
@@ -71,27 +130,49 @@
                     <canvas id="grafikbatang"></canvas>
                     
                    <script>
-            var ctx = document.getElementById("grafikbatang");
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ["2012", "2013", "2014", "2015", "2016", "2017"],
-                    datasets: [{
-                            label: 'Tahun',
-                            data: [101, 108, 120, 117, 117, 113],
-                            backgroundColor: "#03586A"
-                        }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                                }
-                        }]
-                    }
-                }
-            });
+                       $(function () {
+                           $.ajax({
+                               type: "GET",
+                               url: "http://192.168.8.101/simpopel/dashboard/queries/get_pelanggaran_by_year.php",
+                               success: function (data) {
+                                    console.log(data);
+                                    var tahun = [];
+                                        tahun.push(data.total2016);
+                                        tahun.push(data.total2017);
+                                        tahun.push(data.total2018);
+                                        tahun.push(data.total2019);
+                                        tahun.push(data.total2020);
+
+                                   var ctx = document.getElementById("grafikbatang");
+                                   var myChart = new Chart(ctx, {
+                                       type: 'bar',
+                                       data: {
+                                           labels: ["2016", "2017", "2018", "2019", "2020"],
+                                           datasets: [{
+                                               label: 'Banyak Pelanggaran',
+                                               data: tahun,
+                                               backgroundColor: "#03586A"
+                                           }]
+                                       },
+                                       options: {
+                                           scales: {
+                                               yAxes: [{
+                                                   ticks: {
+                                                       beginAtZero: true
+                                                   }
+                                               }]
+                                           }
+                                       }
+                                   });
+
+                               },
+                               error: function (data) {
+                                   console.log("Error mengambil data tahun");
+                               }
+                           })
+
+                       });
+
         </script>
         			</div>
                 </div>
@@ -170,15 +251,9 @@
         </script>
                   </div>
                 </div>
+                  <div class="clearfix"></div>
               </div>
             </div>
-
-                <div class="col-md-4">
-                        <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
-                          <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                          <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
-                        </div>
-                      </div>
                     
 					
                   </div>

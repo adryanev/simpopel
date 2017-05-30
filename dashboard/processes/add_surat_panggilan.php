@@ -16,3 +16,5 @@ $today = date('Y-m-d');
 $dateNull = "0000-00-00";
 $sqlInsertSP = "INSERT INTO tabelsp(idSiswa,jenisSP,statusKepsek,statusWaka,tanggalPermintaan,tanggalCetak)
 VALUES($id,$sp,null,null,'$today','$dateNull')";
+
+

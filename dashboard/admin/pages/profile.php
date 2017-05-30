@@ -164,10 +164,10 @@ WHERE tabelsiswa.idSiswa = ". "$id";
                                   while($row = mysqli_fetch_assoc($result)){
                                       echo "<tr>";
                                       echo "<th scope=\"row\">$counter</th>";
-                                      echo "<td>".$row['idPeraturan']."</td>";
-                                      echo "<td>".$row['namaPelanggaran']."</td>";
-                                      echo "<td>".$row['waktuKejadian']."</td>";
-                                      echo "<td align='right'>".$row['sanksiPoin']."</td>";
+                                      echo "<td><a href=\"rincian_pelanggaran.php?id=".$row['idPelanggaran']."\">".$row['idPeraturan']."</a></td>";
+                                      echo "<td><a href=\"rincian_pelanggaran.php?id=".$row['idPelanggaran']."\">".$row['namaPelanggaran']."</a></td>";
+                                      echo "<td><a href=\"rincian_pelanggaran.php?id=".$row['idPelanggaran']."\">".$row['waktuKejadian']."</a></td>";
+                                      echo "<td align='right'><a href=\"rincian_pelanggaran.php?id=".$row['idPelanggaran']."\">".$row['sanksiPoin']."</a></td>";
                                       echo "</tr>";
                                       $counter++;
 
@@ -214,6 +214,6 @@ WHERE tabelsiswa.idSiswa = ". "$id";
         </div>
         <!-- /page content -->
 <?php
-include '../sections/footer.php';
+require '../sections/footer.php';
 ?>
 
