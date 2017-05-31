@@ -279,7 +279,6 @@
                                             }
                                         }
                                     });
-
                                 },
                                 error: function (data) {
                                     console.log("Error mengambil data gender");
