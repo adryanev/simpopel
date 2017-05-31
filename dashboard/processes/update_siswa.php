@@ -5,6 +5,7 @@
  * Date: 04/05/2017
  * Time: 11.13
  */
+session_start();
 require '../libs/database.php';
 
 

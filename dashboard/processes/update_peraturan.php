@@ -5,6 +5,7 @@
  * Date: 04/05/2017
  * Time: 11.42
  */
+session_start();
 require '../../libs/database.php';
 
 $id = $_GET['id'];

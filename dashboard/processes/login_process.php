@@ -1,5 +1,6 @@
 <?php  
 require '../libs/database.php';
+session_start();
 header("Content-Type: application/json; charset=UTF-8");
    $username = $_POST['username'];
     $password = md5($_POST['password']);

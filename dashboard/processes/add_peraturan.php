@@ -6,7 +6,10 @@
  * Time: 11.42
  */
 
+session_start();
 require '../../libs/database.php';
+require '../../config.php';
+$url = constant("BASE_URL");
 
 $idPeraturan = $_POST['idPeraturan'];
 $namaPelanggaran = $_POST['namaPelanggaran'];
@@ -19,7 +22,7 @@ $result = mysqli_query($dbConnection, $sql);
 
 if($result){
     echo "<script> alert(\"Data telah masuk\");
-window.location = '../views/pages/peraturan.php'; </script>";
+window.location = '".$url."".$_SESSION['level']."pages/peraturan.php'; </script>";
 }else{
     echo "Error: " . $query . "<br>" . mysqli_error($dbConnection);
 }

@@ -6,6 +6,6 @@
  * Time: 16.24
  */
 
-require '../libs/config.php';
+require '../../libs/config.php';
 
 header("Location: ".$url."views/login.php");

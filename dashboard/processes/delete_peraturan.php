@@ -6,6 +6,7 @@
  * Time: 11.43
  */
 
+session_start();
 require '../libs/database.php';
 
 $id = $_POST['idPeraturan'];

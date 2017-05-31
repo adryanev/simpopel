@@ -5,8 +5,10 @@
  * Date: 02/05/2017
  * Time: 22.52
  */
+session_start();
     require '../libs/database.php';
-
+    require '../../config.php';
+    $url = constant("BASE_URL");
     $thisYear = date('Y');
     if(isset($_POST['save'])) {
         $nis = $_POST['nis'];
@@ -14,11 +16,11 @@
         $kelas = $_POST['kelas'];
         $jenisKelamin = $_POST['gender'];
         $tempatLahir = $_POST['tempatLahir'];
-        $tanggalLahir = strtotime($_POST['date']);
+        $tanggalLahir = $_POST['date'];
         $alamat = $_POST['alamat'];
         $agama = $_POST['agama'];
         $nisn = $_POST['nisn'];
-        $usia = $thisYear - date('Y',$tanggalLahir);
+        $usia = $thisYear - date('Y',strtotime($tanggalLahir));
         $namaOrtu = $_POST['namaOrtu'];
         $pasFoto = $_FILES['pasFoto'];
         $namaFoto = $_FILES['pasFoto']['name'] ? $_FILES['pasFoto']['name'] : 'profile.jpg';
@@ -36,11 +38,9 @@
                 move_uploaded_file($fileTemp, "../../images/".$fileName);
                 $sql = "INSERT INTO tabelsiswa(nis,nama,tempatLahir,tanggalLahir,jenisKelamin,namaOrtu,alamat,agama,usia,nisn,kelas,totalPoin,pasFoto)
 VALUES('$nis','$nama','$tempatLahir','$tanggalLahir','$jenisKelamin','$namaOrtu','$alamat','$agama',$usia,'$nisn','$kelas',0,'$namaFoto')";
-
-
                 if(mysqli_query($dbConnection,$sql)){
-                    echo "<script> alert(\"Data telah masuk\");
-window.location('views/pages/siswa.php'); </script>";
+                    echo "<script> window.alert(\"Data telah masuk\"); 
+                        window.location='".$url."".$_SESSION['level']."/pages/siswa.php';</script>";
 
                 }else{
                     echo "Error: " . $query . "<br>" . mysqli_error($dbConnection);
@@ -57,11 +57,11 @@ VALUES('$nis','$nama','$tempatLahir','$tanggalLahir','$jenisKelamin','$namaOrtu'
             $result = mysqli_query($dbConnection,$sql);
 
             if($result){
-                echo "<script>window.alert('Data telah masuk.');
-					window.location='../views/pages/siswa.php'</script>";
+                echo "<script>window.alert(\"Data telah masuk.\");
+					window.location='".$url."".$_SESSION['level']."/pages/siswa.php';</script>";
 
             } else {
-                echo "Error: " . $query . "<br>" . mysqli_error($dbConnection);
+                echo "Error: " . $sql . "<br>" . mysqli_error($dbConnection);
             }
         }
 

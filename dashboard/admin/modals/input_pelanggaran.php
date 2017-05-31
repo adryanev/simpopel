@@ -44,17 +44,6 @@ require '../../libs/database.php';
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idPeraturan">ID Peraturan
-                        </label>
-                        <div class="input-group col-md-6 col-sm-6 col-xs-12">
-                            <div class="input-group-addon">
-                                <i class="fa fa-credit-card"></i>
-                            </div>
-                            <input type="text" id="idPeraturan" placeholder="Masukkan kode peraturan. Contoh: PR030" class="form-control col-md-7 col-xs-12" name="idPeraturan">
-
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="namaPeraturan">Nama Peraturan
                         </label>
                         <div class="input-group col-md-6 col-sm-6 col-xs-12">
@@ -72,9 +61,6 @@ require '../../libs/database.php';
                             <input type="file" id="foto" name="foto" class="file col-md-7 col-xs-12" multiple data-show-upload="false" data-show-caption="true">
                         </div>
                     </div>
-
-
-
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
                         <button type="submit" name="save" class="btn btn-primary">Tambah Pelanggaran</button>
@@ -83,6 +69,13 @@ require '../../libs/database.php';
             </div>
         </div>
     </div>
+    <script>
+        $('#namaPelanggaran').autocomplete({
+            paramName: ,
+            serviceUrl: "<?php echo $url;?>queries/get_all_peraturan.php"
+
+        });
+    </script>
 </div>
 
 

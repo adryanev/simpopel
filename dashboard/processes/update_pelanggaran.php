@@ -5,6 +5,7 @@
  * Date: 04/05/2017
  * Time: 11.43
  */
+session_start();
 require '../libs/database.php';
 date_default_timezone_set("Asia/Jakarta");
 if(isset($_POST['save'])){

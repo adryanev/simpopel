@@ -6,6 +6,7 @@
  * Time: 11.38
  */
 
+session_start();
 require '../libs/database.php' ;
 $id =$_GET['id'];
 

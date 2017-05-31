@@ -5,6 +5,7 @@
  * Date: 29/05/2017
  * Time: 14.49
  */
+session_start();
 require '../libs/database.php';
 require'../../config.php';
 $url = constant("BASE_URL");
