@@ -21,7 +21,7 @@ require '../../libs/database.php';
                 <h4 class="modal-title" id="myModalLabel">Edit Data Siswa</h4>
             </div>
             <div class="modal-body">
-                <form id="demo-form2" action="../../processes/update_siswa.php" method="post" class="form-horizontal form-label-left">
+                <form id="demo-form2" action="../../processes/update_siswa.php" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
                     <div class="form-group hidden">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nis">NIS
                         </label>
@@ -29,7 +29,7 @@ require '../../libs/database.php';
                             <div class="input-group-addon">
                                 <i class="fa fa-credit-card"></i>
                             </div>
-                            <input type="hidden" id="nis" value="<?php echo $id; ?>" readonly="readonly" class="form-control col-md-7 col-xs-12">
+                            <input type="hidden" id="id" name="idSiswa" value="<?php echo $id; ?>" readonly="readonly" class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
                     <div class="form-group">
@@ -221,13 +221,13 @@ require '../../libs/database.php';
                     </div>
 
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                <button type="submit" class="btn btn-primary" name="save">Simpan</button>
-            </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary" name="save">Simpan</button>
+                    </div>
                 </form>
+            </div>
         </div>
     </div>
 </div>
-    </div>
 

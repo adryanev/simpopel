@@ -34,7 +34,7 @@ require '../../libs/database.php';
                     <div class="row">
                     
                     <?php
-                    $sql = "SELECT nama, namaPelanggaran, foto FROM pelanggaran_all_time";
+                    $sql = "SELECT idSiswa, nama, namaPelanggaran, foto FROM pelanggaran_all_time";
                     $result = mysqli_query($dbConnection, $sql);
 
 

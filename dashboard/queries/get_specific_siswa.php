@@ -12,6 +12,19 @@ $sql = "SELECT * from tabelsiswa where idSiswa = $id";
 $result = mysqli_query($dbConnection,$sql);
 $to_json = array();
 while($row = mysqli_fetch_assoc($result)){
-    $to_json[] = $row;
+    $urlFoto = BASE_URL. "images/". $row['pasFoto'];
+    $to_json[] =array('idSiswa' =>$row['idSiswa'],
+     'nama' => $row['nama'],
+     'tempatLahir' => $row['tempatLahir'],
+     'tanggalLahir' => $row['tanggalLahir'],
+     'jenisKelamin' => $row['jenisKelamin'],
+     'namaOrtu' => $row['namaOrtu'],
+     'alamat' => $row['alamat'],
+     'agama' => $row['agama'],
+     'usia' => $row['usia'],
+     'nisn' => $row['nisn'],
+     'kelas' => $row['kelas'],
+     'totalPoin' => $row['totalPoin'],
+     'pasFoto' => $urlFoto);
 }
 echo json_encode($to_json);

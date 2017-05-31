@@ -1,0 +1,10 @@
+header
+sidebar
+top navigation
+top menu
+
+
+konten
+
+
+footer
