@@ -30,7 +30,7 @@
                         $(function () {
                             $.ajax({
                                 type: "GET",
-                                url:"http://192.168.8.101/simpopel/dashboard/queries/get_pelanggaran_by_periode.php",
+                                url:"<?php echo $url; ?>queries/get_pelanggaran_by_periode.php",
                                 success: function(data){
                                     console.log(data);
 
@@ -133,7 +133,7 @@
                        $(function () {
                            $.ajax({
                                type: "GET",
-                               url: "http://192.168.8.101/simpopel/dashboard/queries/get_pelanggaran_by_year.php",
+                               url: "<?php echo $url; ?>queries/get_pelanggaran_by_year.php",
                                success: function (data) {
                                     console.log(data);
                                     var tahun = [];
@@ -190,27 +190,46 @@
                   <div class="x_content">
                     <canvas id="grafikpie"></canvas>
                     <script>
-            var ctx = document.getElementById("grafikpie");
-            var myChart = new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    labels: ["Siswa", "Siswi"],
-                    datasets: [{
-                            label: 'Pelanggar Siswa',
-                            data: [70,30],
-                            backgroundColor: ["#9B59B6","#3498DB"]
-                        }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
+                        $(function(){
+                            $.ajax({
+                                type: "GET",
+                                url: "<?php echo $url; ?>queries/get_pelanggaran_by_gender.php",
+                                success: function (data) {
+                                    console.log(data);
+                                    var gender = [];
+                                    gender.push(data.total);
+                                    gender.push(data.totalLaki);
+                                    gender.push(data.totalPr);
+                                    console.log(gender);
+
+                                    var ctx = document.getElementById("grafikpie");
+                                    var myChart = new Chart(ctx, {
+                                        type: 'pie',
+                                        data: {
+                                            labels: ["Siswa", "Siswi"],
+                                            datasets: [{
+                                                label: 'Pelanggar Siswa',
+                                                data: [gender[1],gender[2]],
+                                                backgroundColor: ["#9B59B6","#3498DB"]
+                                            }]
+                                        },
+                                        options: {
+                                            scales: {
+                                                yAxes: [{
+                                                    ticks: {
+                                                        beginAtZero: true
+                                                    }
+                                                }]
+                                            }
+                                        }
+                                    });
+
+                                },
+                                error: function (data) {
+                                    console.log("Error mengambil data gender");
                                 }
-                        }]
-                    }
-                }
-            });
+                            })
+                        });
         </script>
 
                   </div>
@@ -227,27 +246,47 @@
                   <div class="x_content">
                     <canvas id="grafikdonat"></canvas>
                     <script>
-            var ctx = document.getElementById("grafikdonat");
-            var myChart = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ["Pelanggaran berat", "Pelanggaran Sedang", "Pelanggaran Ringan"],
-                    datasets: [{
-                            label: 'Pelanggar',
-                            data: [10,50,40],
-                            backgroundColor: ["#9B59B6","#3498DB","#26B99A"]
-                        }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
+                        $(function(){
+                            $.ajax({
+                                type: "GET",
+                                url: "<?php echo $url; ?>queries/get_pelanggaran_by_jenis.php",
+                                success: function (data) {
+                                    console.log(data);
+                                    var jenis = [];
+                                    jenis.push(data.totalRingan);
+                                    jenis.push(data.totalSedang);
+                                    jenis.push(data.totalBerat);
+                                    console.log(jenis);
+
+                                    var ctx = document.getElementById("grafikdonat");
+                                    var myChart = new Chart(ctx, {
+                                        type: 'doughnut',
+                                        data: {
+                                            labels: ["Pelanggaran Ringan", "Pelanggaran Sedang", "Pelanggaran berat"],
+                                            datasets: [{
+                                                label: 'Pelanggar',
+                                                data: [jenis[0],jenis[1],jenis[2]],
+                                                backgroundColor: ["#9B59B6","#3498DB","#26B99A"]
+                                            }]
+                                        },
+                                        options: {
+                                            scales: {
+                                                yAxes: [{
+                                                    ticks: {
+                                                        beginAtZero: true
+                                                    }
+                                                }]
+                                            }
+                                        }
+                                    });
+
+                                },
+                                error: function (data) {
+                                    console.log("Error mengambil data gender");
                                 }
-                        }]
-                    }
-                }
-            });
+                            })
+                        });
+
         </script>
                   </div>
                 </div>
