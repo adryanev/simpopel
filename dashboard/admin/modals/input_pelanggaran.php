@@ -70,11 +70,7 @@ require '../../libs/database.php';
         </div>
     </div>
     <script>
-        $('#namaPelanggaran').autocomplete({
-            paramName: ,
-            serviceUrl: "<?php echo $url;?>queries/get_all_peraturan.php"
 
-        });
     </script>
 </div>
 

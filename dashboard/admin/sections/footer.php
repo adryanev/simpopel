@@ -11,8 +11,7 @@
 
         <!-- Include jQuery -->
         <script type="text/javascript" src="../../assets/jquery/dist/jquery.js"></script>
-        <!--JQuery auto complete -->
-        <script type="text/javascript" src="../../assets/jQuery-Autocomplete/src/jquery.autocomplete.js"></script>
+
     <!-- Bootstrap -->
     <script src="../../assets/bootstrap/dist/js/bootstrap.min.js"></script>
         <!--bootstrap-datepicker -->

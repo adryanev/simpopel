@@ -14,5 +14,5 @@ while($row = mysqli_fetch_assoc($result)){
     $to_json[] = $row;
 
 }
-$json_string = json_encode($to_json,JSON_PRETTY_PRINT);
+$json_string = json_encode($to_json);
 print $json_string;
