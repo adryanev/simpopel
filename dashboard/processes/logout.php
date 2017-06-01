@@ -17,4 +17,4 @@ $_SESSION = array();
 session_unset();
 session_destroy();
 
-header("Location: ".$url."views/login.php");
+header("Location: ".$url."/dashboard/views/login.php");

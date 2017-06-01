@@ -31,11 +31,11 @@ if(isset($_POST['save'])){
     $getIdPeraturan = mysqli_fetch_assoc(mysqli_query($dbConnection,"Select idPeraturan from tabelperaturan where namaPelanggaran like '%".$namaPelanggaran."%'"));
     $waktuKejadian = date('Y-m-d h:i:s');
     $foto = $_FILES['foto'];
-    $namaFoto = $_FILES['foto']['name'] ? $_FILES['foto']['name']: 'fotopelanggaran1.jpg';
+    $namaFoto = $_FILES['foto']['name'] ? $_FILES['foto']['name']: 'fotopelanggaran.jpg';
     $sql = "Select sanksiPoin from tabelperaturan where idPeraturan = '$idPeraturan'";
     $result = mysqli_fetch_assoc(mysqli_query($dbConnection,$sql));
     $poin = $result['sanksiPoin'];
-    if($namaFoto != 'fotopelanggaran1.jpg'){
+    if($namaFoto != 'fotopelanggaran.jpg'){
         $errors = array();
         $fileName = $_FILES['foto']['name'];
         $fileSize = $_FILES['foto']['size'];
@@ -53,7 +53,7 @@ VALUES($idSiswa,'$idPeraturan','$waktuKejadian','$namaFoto')";
                 $tambahPoin = mysqli_query($dbConnection,"UPDATE tabelsiswa set totalPoin = totalPoin + $poin WHERE idSiswa = $idSiswa");
 
                 echo "<script> alert(\"Data telah masuk\");
-window.location('../views/pages/siswa.php'); </script>";
+window.location='".$url."dashboard/".$_SESSION['level']."/pages/pelanggaran.php';</script>";
 
             }else{
                 echo "Error: " . $query . "<br>" . mysqli_error($dbConnection);
@@ -78,7 +78,7 @@ VALUES($idSiswa,'$idPeraturan','$waktuKejadian','$namaFoto')";
 
             //end
 
-            echo "<script>window.location='".$url."".$_SESSION['level']."/pages/pelanggaran.php'</script>";
+            echo "<script>window.location='".$url."dashboard/".$_SESSION['level']."/pages/pelanggaran.php'</script>";
 
         } else {
             echo "Error: " . $query . "<br>" . mysqli_error($dbConnection);

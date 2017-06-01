@@ -22,7 +22,7 @@ $result = mysqli_query($dbConnection, $sql);
 
 if($result){
     echo "<script> alert(\"Data telah masuk\");
-window.location = '".$url."".$_SESSION['level']."pages/peraturan.php'; </script>";
+window.location = '".$url."dashboard/".$_SESSION['level']."pages/peraturan.php'; </script>";
 }else{
     echo "Error: " . $query . "<br>" . mysqli_error($dbConnection);
 }

@@ -19,4 +19,4 @@ $today = date('Y-m-d');
 $dateNull = "0000-00-00";
 $sqlInsertSP = "INSERT INTO tabelsp(idSiswa,jenisSP,statusKepsek,statusWaka,tanggalPermintaan,tanggalCetak) VALUES($id,$sp,null,null,'$today','$dateNull')";
 echo"<script>window.alert(\"Permintaan SP sudah di kirim, silahkan tunggu persetujuan dari Kepala Sekolah dan Kesiswaan\");
- window.location=".$url."/</script>";
+ window.location='".$url."/dashboard/';</script>";

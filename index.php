@@ -8,5 +8,5 @@
 
 session_start();
 require 'config.php';
-
-header("Location: ".BASE_URL."views/login.php");
+$url = constant("BASE_URL");
+header("Location: ".$url."dashboard/views/login.php");

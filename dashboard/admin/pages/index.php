@@ -31,7 +31,7 @@ require '../../libs/database.php';
                           echo "<div class=\"mask\">";
                           echo "<p>Point :  ".$row['totalPoin']."</p>";
                           echo "<div class=\"tools tools-bottom\">";
-                          echo "<a href=\"edit_form.html\"><i class=\"fa fa-pencil\"></i></a>";
+                          echo "<a href='".$url."dashboard/".$_SESSION['level']."/pages/profile.php?id=".$row['idSiswa']."'><i class=\"fa fa-pencil\"></i></a>";
                           echo "</div>";
                           echo "</div>";
                           echo "</div>";

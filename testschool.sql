@@ -279,7 +279,7 @@ CREATE TABLE `tabelpelanggaran` (
 --
 
 INSERT INTO `tabelpelanggaran` (`idPelanggaran`, `idSiswa`, `idPeraturan`, `waktuKejadian`, `foto`) VALUES
-(1, 1, 'PR001', '2017-04-26 15:29:19', 'fotopelanggaran1.jpg'),
+(1, 1, 'PR001', '2017-04-26 15:29:19', 'fotopelanggaran.jpg'),
 (2, 3, 'PR003', '2017-04-27 09:09:35', 'fotopelanggaran2.jpg'),
 (3, 1, 'PR002', '2017-04-29 12:16:21', 'fotopelanggaran3.jpg'),
 (4, 40, 'PR007', '2017-04-30 13:19:47', 'fotopelanggaran4.jpg'),
