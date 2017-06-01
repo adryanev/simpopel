@@ -26,8 +26,6 @@ if ($_SESSION['level'] != 'admin') {
 
       <!--JQuery auto complete -->
       <script type="text/javascript" src="../../assets/jQuery-Autocomplete/src/jquery.autocomplete.js"></script>
-
-
       <!-- Bootstrap -->
       <link href="../../assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
       <link href="../../assets/bootstrap/bootstrap-iso.css" rel="stylesheet">
