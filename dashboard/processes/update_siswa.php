@@ -24,9 +24,7 @@ if(isset($_POST['save'])) {
     $usia = $thisYear - date('Y',$tanggalLahir);
     $pasFoto = $_FILES['pasFoto'];
     $namaFoto = $_FILES['pasFoto']['name'] ? $_FILES['pasFoto']['name'] : 'profile.png';
-
-
-
+    /*
     //Uploading foto ke folder images
     if($namaFoto != 'profile.png'){
         $fileName = $_FILES['pasFoto']['name'];
@@ -64,5 +62,5 @@ window.location='../admin/pages/siswa.php'; </script>";
     }
 
 
-
+*/
 }

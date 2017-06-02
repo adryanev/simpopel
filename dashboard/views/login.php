@@ -5,7 +5,7 @@ require '../../config.php';
 require '../libs/database.php';
 $url = constant('BASE_URL');
 if(isset($_SESSION['level'])){
-  header("Location: ".$url."".$_SESSION['level']."/pages/index.php");
+  header("Location: ".$url."dashboard/".$_SESSION['level']."/pages/index.php");
     }
 ?>
 <!DOCTYPE html>

@@ -24,7 +24,7 @@ require '../../libs/database.php';
                         <?php
                         $id = $_GET['id'];
                         $sql = "SELECT idSiswa, nis, nama, tempatLahir, date_format(tanggalLahir, '%d/%m/%Y') as tanggalLahir, jenisKelamin, namaOrtu,
- alamat, agama, usia, nisn, kelas, totalPoin, pasFoto FROM tabelsiswa WHERE idSiswa = $id";
+ alamat, agama, usia, nisn, kelas, totalPoin, pasFoto, noHp FROM tabelsiswa WHERE idSiswa = $id";
                         $result = mysqli_query($dbConnection, $sql);
                         $row = mysqli_fetch_assoc($result);
                         ?>
@@ -111,6 +111,11 @@ require '../../libs/database.php';
                                   <th scope="row">Nama Orang Tua</th>
                                   <td><?php echo $row['namaOrtu']?></td>
                                 </tr>
+                               <tr>
+                                   <th scope="row">Nomor Orang Tua</th>
+                                   <td><?php echo $row['noHp']?></td>
+                               </tr>
+
                                 <tr>
                                   <th scope="row">Alamat</th>
                                   <td><?php echo $row['alamat']?></td>

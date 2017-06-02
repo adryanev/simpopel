@@ -70,7 +70,7 @@ require '../../libs/database.php';
         </div>
     </div>
     <script>
-
+        $('#namaPelanggaran').autocomplete();
     </script>
 </div>
 

@@ -24,12 +24,15 @@ date_default_timezone_set("Asia/Jakarta");
 if(isset($_POST['save'])){
 
     $nis = $_POST['nis'];
-    $getID = mysqli_fetch_assoc(mysqli_query($dbConnection,"SELECT idSiswa from tabelsiswa where nis = $nis"));
+    $getID = mysqli_fetch_assoc(mysqli_query($dbConnection,"SELECT idSiswa, noHp from tabelsiswa where nis = $nis"));
     $idSiswa = $getID['idSiswa'];
     $nama = $_POST['nama'];
     $namaPelanggaran = $_POST['namaPelanggaran'];
     $getIdPeraturan = mysqli_fetch_assoc(mysqli_query($dbConnection,"Select idPeraturan from tabelperaturan where namaPelanggaran like '%".$namaPelanggaran."%'"));
+    $idPeraturan = $getIdPeraturan['idPeraturan'];
+    $noHp = $getID['noHp'];
     $waktuKejadian = date('Y-m-d h:i:s');
+    $pesan = $nama." telah melanggar peraturan. Untuk info lebih lanjut silahkan hubungi: 085210248958" ;
     $foto = $_FILES['foto'];
     $namaFoto = $_FILES['foto']['name'] ? $_FILES['foto']['name']: 'fotopelanggaran.jpg';
     $sql = "Select sanksiPoin from tabelperaturan where idPeraturan = '$idPeraturan'";
@@ -52,8 +55,18 @@ VALUES($idSiswa,'$idPeraturan','$waktuKejadian','$namaFoto')";
 
                 $tambahPoin = mysqli_query($dbConnection,"UPDATE tabelsiswa set totalPoin = totalPoin + $poin WHERE idSiswa = $idSiswa");
 
-                echo "<script> alert(\"Data telah masuk\");
-window.location='".$url."".$_SESSION['level']."/pages/pelanggaran.php';</script>";
+                if($tambahPoin){
+                    //kirim sms pelanggaran
+
+                    $sql = mysqli_query($dbConnection,"INSERT INTO gammu.outbox (DestinationNumber, TextDecoded, CreatorID) VALUES ('$noHp', '$pesan', '$nama')");
+                    if($sql){
+                        echo "<script> alert(\"Data telah masuk\");
+window.location='".$url."mobile/".$_SESSION['level']."/pages/pelanggaran.php';</script>";
+
+                    }
+
+
+                }
 
             }else{
                 echo "Error: " . $query . "<br>" . mysqli_error($dbConnection);
@@ -72,14 +85,18 @@ VALUES($idSiswa,'$idPeraturan','$waktuKejadian','$namaFoto')";
 
         if($result){
             $tambahPoin = mysqli_query($dbConnection,"UPDATE tabelsiswa set totalPoin = totalPoin + $poin WHERE idSiswa = $idSiswa");
-            echo "<script>window.alert('Data telah masuk.');
+
+            if($tambahPoin){
+                //kirim sms pelanggaran
+                $sql = mysqli_query($dbConnection,"INSERT INTO gammu.outbox (DestinationNumber, TextDecoded, CreatorID) VALUES ('$noHp', '$pesan', '$nama')");
+                if($sql){
+                    echo "<script> alert(\"Data telah masuk\");
+window.location='".$url."mobile/".$_SESSION['level']."/pages/pelanggaran.php';</script>";
+                    echo "<script>window.alert('Data telah masuk.');
 					</script>";
-            //Kirim SMS gateway
 
-            //end
-
-            echo "<script>window.location='".$url."".$_SESSION['level']."/pages/pelanggaran.php'</script>";
-
+                }
+            }
         } else {
             echo "Error: " . $query . "<br>" . mysqli_error($dbConnection);
         }
