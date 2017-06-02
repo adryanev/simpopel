@@ -1,7 +1,12 @@
 <?php  
 session_start();
-require '../../libs/config.php';
 
+require '../../config.php';
+require '../libs/database.php';
+$url = constant('BASE_URL');
+if(isset($_SESSION['level'])){
+  header("Location: ".$url."dashboard/".$_SESSION['level']."/pages/index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -40,7 +45,7 @@ require '../../libs/config.php';
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form action="" method="post">
+            <form name="login" action="" method="post">
               <h1>Silahkan Login</h1>
               <div>
                 <input type="text" class="form-control"  placeholder="Username" required="" name="username" />
@@ -49,19 +54,14 @@ require '../../libs/config.php';
                 <input type="password" class="form-control" placeholder="Password" required="" name="password" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Log in</a>
+                <button name="login" class="btn btn-default submit" type="submit">Log in</button>
               </div>
 
               <div class="clearfix"></div>
 
               <div class="separator">
-                <p class="change_link">
-                  <a href="#signup" class="to_register"> Lupa Password? </a>
-                </p>
-
                 <div class="clearfix"></div>
                 <br />
-
                 <div>
                   <p>©2017 All Rights Reserved. </p>
                 </div>
@@ -69,44 +69,7 @@ require '../../libs/config.php';
             </form>
           </section>
         </div>
-
-        <div id="register" class="animate form registration_form">
-          <section class="login_content">
-            <form>
-              <h1>Create Account</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
-              </div>
-              <div>
-                <input type="email" class="form-control" placeholder="Email" required="" />
-              </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
-              </div>
-              <div>
-              <input type="submit" name="login"
-              value="login" class="btn btn-default submit">
-                <!-- <a class="btn btn-default submit" href="index.html">Submit</a> -->
-              </div>
-
-              <div class="clearfix"></div>
-
-              <div class="separator">
-                <p class="change_link">Already a member ?
-                  <a href="#signin" class="to_register"> Log in </a>
-                </p>
-
-                <div class="clearfix"></div>
-                <br />
-
-                <div>
-                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
-                </div>
-              </div>
-            </form>
-          </section>
-        </div>
+        <div class="clearfix"></div>
       </div>
     </div>
   </body>
@@ -114,32 +77,35 @@ require '../../libs/config.php';
 <?php 
 	if (isset($_POST['login'])) {
 		$username = $_POST['username'];
-		$password = sha1($_POST['password']);
-		$login =$login = mysqli_query("SELECT * FROM tb_users 
-					where username='$userlogin' AND password='$passlgoin'");
-		$cek = mysqli_num_rows($login);
-		$r = mysqli_fetch_assoc($login);
-		$_SESSION[id] = $r['id_user'];
-		$_SESSION[nama] = $r['nama_lengkap'];
-		$_SESSION[level] = $r['level'];
+		$password = md5($_POST['password']);
+    $id = $_GET['id'];
+    $sql = "SELECT * FROM tabeluser where username='$username' AND password='$password'";
+    $result = mysqli_query($dbConnection, $sql);
+    $row = mysqli_fetch_assoc($result);
+
+		$_SESSION['id'] = $row['idUser'];
+		$_SESSION['nama'] = $row['username'];
+		$_SESSION['level'] = $row['hak'];
 		
-		if ($cek >= 1){
-				if ($r['level'] == 'admin'){
-					echo "<script>window.alert('Selamat Datang Admin $r[nama_lengkap]');
-					window.location='$config[site]admin.page'</script>";
-				}elseif($r['level'] == 'user'){
-					echo "<script>window.alert('Selamat Datang $r[nama_lengkap].');
-					window.location='$config[site]user.page'</script>";
-				}else{
-					echo "<script>window.alert('Maaf, Username atau Password Anda Salah..');
-					window.location='$config[site]login'</script>";
+		if ($result){
+				if ($row['hak'] == 'admin'){
+					echo "<script>window.alert('Selamat Datang $row[username]');
+					window.location='../admin/pages/index.php'</script>";
+				}elseif($row['hak'] == 'piket'){
+					echo "<script>window.alert('Selamat Datang $row[username].');
+					window.location='../piket/views/pages/index.php'</script>";
+				}elseif($row['hak'] == 'kepsek'){
+          echo "<script>window.alert('Selamat Datang $row[username].');
+          window.location='../kepsek/pages/index.php'</script>";
+        }elseif($row['hak'] == 'kesiswaan'){
+          echo "<script>window.alert('Selamat Datang $row[username].');
+          window.location='../kesiswaan/pages/index.php'</script>";
+        }else{
+					echo "<script>window.alert('Maaf, Username Tidak Ada');
+					window.location='login.php'</script>";
 				}
-		
-			echo "<script>window.alert('Maaf, Username atau Password Anda Salah..');
-				window.location='login'</script>";
 		}
 	} else {
 		# code...
 	}
-	
  ?>
