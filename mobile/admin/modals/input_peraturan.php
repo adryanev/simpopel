@@ -1,14 +1,3 @@
-<?php
-/**
- * Created by IntelliJ IDEA.
- * User: adryanev
- * Date: 04/05/2017
- * Time: 21.35
- */
-?>
-
-<!-- modals -->
-<!-- Large modal -->
 
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -21,7 +10,6 @@
             </div>
             <div class="modal-body">
                 <form id="inputperaturan" name="inputperaturan" action="../../processes/add_peraturan.php" method="post" class="form-horizontal form-label-left">
-
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idPeraturan">ID Peraturan
                         </label>
@@ -29,7 +17,7 @@
                             <div class="input-group-addon">
                                 <i class="fa fa-credit-card"></i>
                             </div>
-                            <input type="text" id="idPeraturan" placeholder="Masukkan kode peraturan. Contoh: PR030" class="form-control col-md-7 col-xs-12" name="idPeraturan">
+                            <input type="text" id="idPeraturan" placeholder="Masukkan kode peraturan. Contoh: PR030" required="" class="form-control col-md-7 col-xs-12" name="idPeraturan">
 
                         </div>
 
@@ -41,7 +29,7 @@
                             <div class="input-group-addon">
                                 <i class="fa fa-user"></i>
                             </div>
-                            <input type="name" name="namaPelanggaran" id="namaPelanggaran" placeholder="Masukkan Nama Pelanggaran" class="form-control col-md-7 col-xs-12">
+                            <input type="name" name="namaPelanggaran" id="namaPelanggaran" placeholder="Masukkan Nama Pelanggaran" required="" class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
                     <div class="form-group">
@@ -63,7 +51,7 @@
                             <div class="input-group-addon">
                                 <i class="fa fa-building"></i>
                             </div>
-                            <input type="text" name="sanksiPoin" id="sanksiPoin" placeholder="Masukkan Jumlah Poin" class="form-control col-md-7 col-xs-12">
+                            <input type="text" name="sanksiPoin" id="sanksiPoin" placeholder="Masukkan Jumlah Poin" required="" class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
 
@@ -77,5 +65,3 @@
         </div>
     </div>
 </div>
-
-

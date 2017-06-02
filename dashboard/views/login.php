@@ -93,7 +93,7 @@ if(isset($_SESSION['level'])){
 					window.location='../admin/pages/index.php'</script>";
 				}elseif($row['hak'] == 'piket'){
 					echo "<script>window.alert('Selamat Datang $row[username].');
-					window.location='../piket/views/pages/index.php'</script>";
+					window.location='../piket/pages/index.php'</script>";
 				}elseif($row['hak'] == 'kepsek'){
           echo "<script>window.alert('Selamat Datang $row[username].');
           window.location='../kepsek/pages/index.php'</script>";

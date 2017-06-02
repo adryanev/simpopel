@@ -16,8 +16,6 @@
                     <li><a href="../../processes/logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
-                  <?php include 'notification.php'?>
-
               </ul>
             </nav>
           </div>

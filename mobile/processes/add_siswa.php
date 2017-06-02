@@ -40,7 +40,7 @@ session_start();
 VALUES('$nis','$nama','$tempatLahir','$tanggalLahir','$jenisKelamin','$namaOrtu','$alamat','$agama',$usia,'$nisn','$kelas',0,'$namaFoto')";
                 if(mysqli_query($dbConnection,$sql)){
                     echo "<script> window.alert(\"Data telah masuk\"); 
-                        window.location='".$url."".$_SESSION['level']."/pages/siswa.php';</script>";
+                        window.location='".$url."mobile/".$_SESSION['level']."/pages/siswa.php';</script>";
 
                 }else{
                     echo "Error: " . $query . "<br>" . mysqli_error($dbConnection);
@@ -58,7 +58,7 @@ VALUES('$nis','$nama','$tempatLahir','$tanggalLahir','$jenisKelamin','$namaOrtu'
 
             if($result){
                 echo "<script>window.alert(\"Data telah masuk.\");
-					window.location='".$url."".$_SESSION['level']."/pages/siswa.php';</script>";
+					window.location='".$url."mobile/".$_SESSION['level']."/pages/siswa.php';</script>";
 
             } else {
                 echo "Error: " . $sql . "<br>" . mysqli_error($dbConnection);

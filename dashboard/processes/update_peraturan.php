@@ -1,13 +1,9 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: adryanev
- * Date: 04/05/2017
- * Time: 11.42
- */
 session_start();
-require '../../libs/database.php';
+require '../libs/database.php';
+require '../../config.php';
 
+$url = constant("BASE_URL");
 $id = $_GET['id'];
 
 if(isset($_POST['save'])){
@@ -16,14 +12,14 @@ if(isset($_POST['save'])){
     $jenisPelanggaran = $_POST['jenisPelanggaran'];
     $sanksiPoin = $_POST['sanksiPoin'];
 
-    $sql = "UPDATE tabelsiswa SET idPeraturan = $idPeraturan, namaPelanggaran = $namaPelanggaran
-    , jenisPelanggaran = $jenisPelanggaran, sanksiPoin = $sanksiPoin where idPeraturan = $id";
+    $sql = "UPDATE tabelperaturan SET idPeraturan = '$idPeraturan', namaPelanggaran = '$namaPelanggaran', jenisPelanggaran = $jenisPelanggaran, sanksiPoin = $sanksiPoin where idPeraturan = '$idPeraturan'";
 
-    if(mysqli_query($sql)){
+    if(mysqli_query($dbConnection,$sql)){
         echo "<script>window.alert('Data telah masuk.');
-					window.location='../views/pages/peraturan.php'</script>";
+					window.location='".$url."dashboard/".$_SESSION['level']."/pages/peraturan.php'</script>";
 
     } else {
         echo "Error: " . $query . "<br>" . mysqli_error($dbConnection);
     }
 }
+

@@ -37,7 +37,7 @@ require '../../libs/database.php';
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <a href="<?php echo $url; ?>processes/add_surat_panggilan.php?id=<?php echo $id;?>&sp=<?php echo $sp;?>"><button type="button" class="btn btn-danger">Cetak SP</button></a>
+                <a href="<?php echo $url; ?>dashboard/processes/add_surat_panggilan.php?id=<?php echo $id;?>&sp=<?php echo $sp;?>"><button type="button" class="btn btn-danger">Cetak SP</button></a>
             </div>
 
         </div>

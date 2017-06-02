@@ -7,6 +7,9 @@
  */
 session_start();
 require '../libs/database.php';
+require '../../config.php';
+$url = constant("BASE_URL");
+
 date_default_timezone_set("Asia/Jakarta");
 if(isset($_POST['save'])){
     $idPelanggaran = $_POST['idPelanggaran'];
@@ -41,7 +44,7 @@ if(isset($_POST['save'])){
 
             if(mysqli_query($dbConnection,$sql)){
                 echo "<script> alert(\"Data telah masuk\");
-window.location('views/pages/siswa.php'); </script>";
+window.location='".$url."mobile".$_SESSION['level']."/pages/siswa.php'</script>";
 
             }else{
                 echo "Error: " . $query . "<br>" . mysqli_error($dbConnection);
@@ -61,7 +64,7 @@ window.location('views/pages/siswa.php'); </script>";
 
         if($result){
             echo "<script>window.alert('Data telah masuk.');
-					window.location='../views/pages/siswa.php'</script>";
+					window.location='".$url."mobile".$_SESSION['level']."/pages/siswa.php'</script>";
 
         } else {
             echo "Error: " . $query . "<br>" . mysqli_error($dbConnection);

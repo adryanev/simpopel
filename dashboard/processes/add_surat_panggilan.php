@@ -17,6 +17,11 @@ $result = mysqli_query($dbConnection,$sql);
 $row = mysqli_fetch_assoc($result);
 $today = date('Y-m-d');
 $dateNull = "0000-00-00";
-$sqlInsertSP = "INSERT INTO tabelsp(idSiswa,jenisSP,statusKepsek,statusWaka,tanggalPermintaan,tanggalCetak) VALUES($id,$sp,null,null,'$today','$dateNull')";
-echo"<script>window.alert(\"Permintaan SP sudah di kirim, silahkan tunggu persetujuan dari Kepala Sekolah dan Kesiswaan\");
- window.location='".$url."/dashboard/';</script>";
+$sqlInsertSP = "INSERT INTO tabelsp(idSiswa,jenisSP,statusKepsek,statusWaka,tanggalPermintaan,tanggalCetak) VALUES($id,$sp,'no','no','$today','$dateNull')";
+$resultSP = mysqli_query($dbConnection,$sqlInsertSP);
+if($resultSP){
+    echo"<script>window.alert('\"Permintaan SP sudah di kirim, silahkan tunggu persetujuan dari Kepala Sekolah dan Kesiswaan\"');
+
+     window.location='".$url."dashboard/".$_SESSION['level']."/pages/surat_panggilan.php';</script>";
+}
+

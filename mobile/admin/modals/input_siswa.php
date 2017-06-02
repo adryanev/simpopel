@@ -1,14 +1,3 @@
-<?php
-/**
- * Created by IntelliJ IDEA.
- * User: adryanev
- * Date: 02/05/2017
- * Time: 20.22
- */
-?>
-
-<!-- modals -->
-<!-- Large modal -->
 
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -28,7 +17,7 @@
                             <div class="input-group-addon">
                                 <i class="fa fa-credit-card"></i>
                             </div>
-                            <input type="text" id="nis" placeholder="Masukkan NIS Siswa" class="form-control col-md-7 col-xs-12" name="nis">
+                            <input type="text" id="nis" placeholder="Masukkan NIS Siswa" required="" class="form-control col-md-7 col-xs-12" name="nis">
                         </div>
                     </div>
                     <div class="form-group">
@@ -38,7 +27,7 @@
                             <div class="input-group-addon">
                                 <i class="fa fa-user"></i>
                             </div>
-                            <input type="name" name="nama" id="nama" placeholder="Masukkan Nama Siswa" class="form-control col-md-7 col-xs-12">
+                            <input type="name" name="nama" id="nama" required="" placeholder="Masukkan Nama Siswa" class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
                     <div class="form-group">
@@ -108,7 +97,7 @@
                             <div class="input-group-addon">
                                 <i class="fa fa-users"></i>
                             </div>
-                            <input type="text" name="namaOrtu" id="namaOrtu" placeholder="Masukkan Nama Orang Tua Siswa" class="form-control col-md-7 col-xs-12">
+                            <input type="text" name="namaOrtu" id="namaOrtu" placeholder="Masukkan Nama Orang Tua Siswa" required="" class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
                     <div class="form-group">

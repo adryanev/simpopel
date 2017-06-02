@@ -7,7 +7,8 @@
  */
 session_start();
 require '../libs/database.php';
-
+require '../../config.php';
+$url = constant("BASE_URL");
 
 if(isset($_POST['save'])) {
     $id = $_POST['idSiswa'];
@@ -24,9 +25,6 @@ if(isset($_POST['save'])) {
     $usia = $thisYear - date('Y',$tanggalLahir);
     $pasFoto = $_FILES['pasFoto'];
     $namaFoto = $_FILES['pasFoto']['name'] ? $_FILES['pasFoto']['name'] : 'profile.png';
-
-
-
     //Uploading foto ke folder images
     if($namaFoto != 'profile.png'){
         $fileName = $_FILES['pasFoto']['name'];
@@ -41,7 +39,7 @@ if(isset($_POST['save'])) {
            WHERE idSiswa = $id";
             if(mysqli_query($dbConnection,$sql)){
                 echo "<script> alert(\"Data telah masuk\");
-window.location('../admin/pages/siswa.php'); </script>";
+window.location='".$url."mobile/".$_SESSION['level']."/pages/siswa.php'; </script>";
 
             }else{
                 echo "Error: " . $query . "<br>" . mysqli_error($dbConnection);
@@ -56,13 +54,11 @@ window.location('../admin/pages/siswa.php'); </script>";
 
         if($result){
             echo "<script> alert(\"Data telah masuk\");
-window.location='../admin/pages/siswa.php'; </script>";
+window.location='".$url."mobile/".$_SESSION['level']."/pages/siswa.php'; </script>";
         }else{
 
             echo mysqli_error($result);
         }
     }
-
-
 
 }

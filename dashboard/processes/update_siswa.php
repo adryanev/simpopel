@@ -37,8 +37,8 @@ if(isset($_POST['save'])) {
            SET nis = $nis,nama = $nama,tempatLahir = $tempatLahir,tanggalLahir = $tanggalLahir,jenisKelamin  = $jenisKelamin,namaOrtu = $namaOrtu,alamat = $alamat,agama = $agama,usia = $usia,nisn = $nisn,kelas = $kelas,pasFoto = $namaFoto 
            WHERE idSiswa = $id";
             if(mysqli_query($dbConnection,$sql)){
-                echo "<script> alert(\"Data telah masuk\");
-window.location('../admin/pages/siswa.php'); </script>";
+                echo "<script> window.alert(\"Data telah masuk\");
+window.location='".$url."dashboard/".$_SESSION['level']."/pages/siswa.php'; </script>";
 
             }else{
                 echo "Error: " . $query . "<br>" . mysqli_error($dbConnection);
@@ -52,8 +52,8 @@ window.location('../admin/pages/siswa.php'); </script>";
         $result = mysqli_query($dbConnection,$sql);
 
         if($result){
-            echo "<script> alert(\"Data telah masuk\");
-window.location='../admin/pages/siswa.php'; </script>";
+            echo "<script> window.alert(\"Data telah masuk\");
+window.location='".$url."dashboard/".$_SESSION['level']."/pages/siswa.php'; </script>";
         }else{
 
             echo mysqli_error($result);

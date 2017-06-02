@@ -41,7 +41,7 @@ if(isset($_POST['save'])){
 
             if(mysqli_query($dbConnection,$sql)){
                 echo "<script> alert(\"Data telah masuk\");
-window.location('views/pages/siswa.php'); </script>";
+window.location='".$url."dashboard/".$_SESSION['level']."/pages/pelanggaran.php'; </script>";
 
             }else{
                 echo "Error: " . $query . "<br>" . mysqli_error($dbConnection);
@@ -61,7 +61,7 @@ window.location('views/pages/siswa.php'); </script>";
 
         if($result){
             echo "<script>window.alert('Data telah masuk.');
-					window.location='../views/pages/siswa.php'</script>";
+					window.location='".$url."dashboard/".$_SESSION['level']."/pages/pelanggaran.php'; </script>";
 
         } else {
             echo "Error: " . $query . "<br>" . mysqli_error($dbConnection);

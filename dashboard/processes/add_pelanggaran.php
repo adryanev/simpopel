@@ -24,9 +24,9 @@ date_default_timezone_set("Asia/Jakarta");
 if(isset($_POST['save'])){
 
     $nis = $_POST['nis'];
-    $getID = mysqli_fetch_assoc(mysqli_query($dbConnection,"SELECT idSiswa, noHp from tabelsiswa where nis = $nis"));
+    $getID = mysqli_fetch_assoc(mysqli_query($dbConnection,"SELECT idSiswa, nama, noHp from tabelsiswa where nis = $nis"));
     $idSiswa = $getID['idSiswa'];
-    $nama = $_POST['nama'];
+    $nama = $getID['nama'];
     $namaPelanggaran = $_POST['namaPelanggaran'];
     $getIdPeraturan = mysqli_fetch_assoc(mysqli_query($dbConnection,"Select idPeraturan from tabelperaturan where namaPelanggaran like '%".$namaPelanggaran."%'"));
     $idPeraturan = $getIdPeraturan['idPeraturan'];
