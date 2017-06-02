@@ -8,4 +8,4 @@
 
 require '../../libs/config.php';
 
-header("Location: ".$url."views/login.php");
+header("Location: ".$url."dashboard/views/login.php");
