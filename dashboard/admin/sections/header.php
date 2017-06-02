@@ -4,7 +4,7 @@ session_start();
 require('../../../config.php');
 $url = constant('BASE_URL');
 if ($_SESSION['level'] != 'admin') {
-    header("Location: " . $url . "views/login.php");
+    header("Location: " . $url . "dashboard/views/login.php");
 }
 ?>
 <!DOCTYPE html>
